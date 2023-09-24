@@ -1,5 +1,7 @@
 """Test's settings"""
 import os
+import sys
+import datetime
 from django import VERSION as DJANGO_VERSION
 from django.utils.translation import gettext_noop
 
@@ -74,16 +76,17 @@ MEDIA_ROOT = '/var/opt/your_project_name/mediaroot/'
 STATIC_URL = '/static/'
 STATIC_ROOT = '/var/cache/your_project_name/staticroot/'
 
-AWS_STORAGE_BUCKET_NAME = 'your_project_bucket_name'
+# Example: cdn.your_project_bucket_name.com
+AWS_STORAGE_BUCKET_PREFIX = "cdn"
+AWS_STORAGE_BUCKET_NAME = "your_project_bucket_name"
+AWS_STORAGE_BUCKET_TLD = "com"
+
+# Access Key ID & Secret Access Key
 AWS_ACCESS_KEY_ID = 'YOUR_PROJECT_AWS_ACCESS_KEY_ID'
 AWS_SECRET_ACCESS_KEY = 'YOUR_PROJECT_AWS_SECRET_ACCESS_KEY'
 # ...other setting...
 
 # START - Compress and Upload on S3
-import os
-import sys
-import datetime
-
 # Add option to FORCE_LOCAL_STORAGE
 # https://www.mslinn.com/django/1300-django-aws-control.html
 if "--force-local-storage" in sys.argv:
@@ -125,7 +128,7 @@ STATICFILES_FINDERS = (
 )
 COMPRESS_ROOT = STATIC_ROOT
 
-AWS_S3_CUSTOM_DOMAIN = f"cdn.{AWS_STORAGE_BUCKET_NAME}.org"
+AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_PREFIX}.{AWS_STORAGE_BUCKET_NAME}.{AWS_STORAGE_BUCKET_TLD}"
 
 STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
 MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
