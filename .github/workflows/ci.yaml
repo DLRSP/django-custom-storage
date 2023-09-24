@@ -14,5 +14,5 @@ on:
 
 jobs:
   ci:
-    uses: DLRSP/workflows/.github/workflows/ci.yaml@v1.8.9
+    uses: DLRSP/workflows/.github/workflows/ci.yaml@v1.8.10
     secrets: inherit
