@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools >= 40.8.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+target-version = ['py11']
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+check_untyped_defs = true
+disallow_any_generics = true
+disallow_incomplete_defs = true
+disallow_untyped_defs = true
+mypy_path = "src/"
+no_implicit_optional = true
+show_error_codes = true
+warn_unreachable = true
+warn_unused_ignores = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+allow_untyped_defs = true
+
+[tool.pytest.ini_options]
+addopts = """\
+    --strict-config
+    --strict-markers
+    --ds=tests.settings
+    """
+django_find_project = false
+
+# bump-my-version
+[tool.bumpversion]
+current_version = "0.1.0"
+commit = true
+tag = true
+allow_dirty = true
+
+[[tool.bumpversion.files]]
+filename = "./setup.cfg"
+
+[[tool.bumpversion.files]]
+filename = "./src/custom_storage/__init__.py"
