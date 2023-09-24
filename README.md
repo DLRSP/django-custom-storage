@@ -9,7 +9,7 @@
 
 ## GitHub ![GitHub release](https://img.shields.io/github/tag/DLRSP/django-custom-storage.svg) ![GitHub release](https://img.shields.io/github/release/DLRSP/django-custom-storage.svg)
 
-## Test [![codecov.io](https://codecov.io/github/DLRSP/django-custom-storage/coverage.svg?branch=main)](https://codecov.io/github/DLRSP/django-custom-storage?branch=main) [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/DLRSP/django-custom-storage/main.svg)](https://results.pre-commit.ci/latest/github/DLRSP/django-custom-storage/main) [![gitthub.com](https://github.com/DLRSP/django-custom-storage/actions/workflows/ci.yml/badge.svg)](https://github.com/DLRSP/django-custom-storage/actions/workflows/ci.yml)
+## Test [![codecov.io](https://codecov.io/github/DLRSP/django-custom-storage/coverage.svg?branch=main)](https://codecov.io/github/DLRSP/django-custom-storage?branch=main) [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/DLRSP/django-custom-storage/main.svg)](https://results.pre-commit.ci/latest/github/DLRSP/django-custom-storage/main) [![gitthub.com](https://github.com/DLRSP/django-custom-storage/actions/workflows/ci.yaml/badge.svg)](https://github.com/DLRSP/django-custom-storage/actions/workflows/ci.yaml)
 
 ## Check Demo Project
 * Check the demo repo on [GitHub](https://github.com/DLRSP/example/tree/django-custom-storage)
