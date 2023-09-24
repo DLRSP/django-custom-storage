@@ -3,6 +3,7 @@ setuptools
 wheel
 tox
 tox-py
+codecov
 coverage
 pytest
 pytest-django
