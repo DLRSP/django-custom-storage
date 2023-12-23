@@ -35,3 +35,8 @@ class MediaRootCachedS3Storage(S3Storage):
     def delete(self, name):
         self.local_storage.delete(name)
         super(MediaRootCachedS3Storage, self).delete(name)
+
+        # Delete optimized image if exist
+        for extension in ("webp", "avif"):
+            self.local_storage.delete(f"{name}.{extension}")
+            super(MediaRootCachedS3Storage, self).delete(f"{name}.{extension}")
