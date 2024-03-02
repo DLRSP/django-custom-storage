@@ -8,13 +8,13 @@ asgiref==3.7.2 \
     --hash=sha256:89b2ef2247e3b562a16eef663bc0e2e703ec6468e2fa8a5cd61cd449786d4f6e \
     --hash=sha256:9e0ce3aa93a819ba5b45120216b23878cf6e8525eb3848653452b4192b92afed
     # via django
-boto3==1.34.53 \
-    --hash=sha256:340c73f57fcca6f503403e2e13a0a4ad44bec218feee2e0896be612324394afd \
-    --hash=sha256:cd30261a782824ce543a628ae524480abb4ca6ab4e4a2631477e48baed43b5f2
+boto3==1.34.54 \
+    --hash=sha256:8b3f5cc7fbedcbb22271c328039df8a6ab343001e746e0cdb24774c426cadcf8 \
+    --hash=sha256:f201b6a416f809283d554c652211eecec9fe3a52ed4063dab3f3e7aea7571d9c
     # via django-storages
-botocore==1.34.53 \
-    --hash=sha256:3d243781e994dfc5b20036d9fb92672bfaef4dbe388eaa79dae6440ea56c53eb \
-    --hash=sha256:cbbcaddc35738d32df55d26ed5561cf3fa32751a6b22e7e342be87b5e3f55eec
+botocore==1.34.54 \
+    --hash=sha256:4061ff4be3efcf53547ebadf2c94d419dfc8be7beec24e9fa1819599ffd936fa \
+    --hash=sha256:bf215d93e9d5544c593962780d194e74c6ee40b883d0b885e62ef35fc0ec01e5
     # via
     #   boto3
     #   s3transfer
@@ -43,9 +43,9 @@ jmespath==1.0.1 \
     # via
     #   boto3
     #   botocore
-python-dateutil==2.9.0 \
-    --hash=sha256:78e73e19c63f5b20ffa567001531680d939dc042bf7850431877645523c66709 \
-    --hash=sha256:cbf2f1da5e6083ac2fbfd4da39a25f34312230110440f424a14c7558bb85d82e
+python-dateutil==2.9.0.post0 \
+    --hash=sha256:37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3 \
+    --hash=sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427
     # via botocore
 pytz==2024.1 \
     --hash=sha256:2a29735ea9c18baf14b448846bde5a48030ed267578472d8955cd0e7443a9812 \
