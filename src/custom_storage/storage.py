@@ -40,3 +40,16 @@ class MediaRootCachedS3Storage(S3Storage):
         for extension in ("webp", "avif"):
             self.local_storage.delete(f"{name}.{extension}")
             super(MediaRootCachedS3Storage, self).delete(f"{name}.{extension}")
+
+
+class PublicMediaS3Boto3Storage(S3Storage):
+    location = 'media'
+    default_acl = 'public-read'
+    file_overwrite = False
+
+
+class PrivateMediaS3Boto3Storage(S3Storage):
+    location = 'private'
+    default_acl = 'private'
+    file_overwrite = False
+    custom_domain = False
