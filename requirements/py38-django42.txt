@@ -26,13 +26,13 @@ backports-zoneinfo==0.2.1 \
     --hash=sha256:f04e857b59d9d1ccc39ce2da1021d196e47234873820cbeaad210724b1ee28ac \
     --hash=sha256:fadbfe37f74051d024037f223b8e001611eac868b5c5b06144ef4d8b799862f2
     # via django
-boto3==1.34.80 \
-    --hash=sha256:5627f6ecadb46fc7c9f8c368baf948f1b00a3fd2f8eb1275c254469853ad8fdb \
-    --hash=sha256:bb8f433c04dcdffbd4a802df56c1c30f2be23b1161fd8fb45e4b76c1487ec122
+boto3==1.34.81 \
+    --hash=sha256:004dad209d37b3d2df88f41da13b7ad702a751904a335fac095897ff7a19f82b \
+    --hash=sha256:18224d206a8a775bcaa562d22ed3d07854934699190e12b52fcde87aac76a80e
     # via django-storages
-botocore==1.34.80 \
-    --hash=sha256:354a00f03faba52acc6f1a84fa4f035d48541633be98ccc24b59dc544f679f8b \
-    --hash=sha256:8402262e819f3d46df504bbd781e770858c0130b90f660699f75ef3a63abca5a
+botocore==1.34.81 \
+    --hash=sha256:85f6fd7c5715eeef7a236c50947de00f57d72e7439daed1125491014b70fab01 \
+    --hash=sha256:f79bf122566cc1f09d71cc9ac9fcf52d47ba48b761cbc3f064017b36a3c40eb8
     # via
     #   boto3
     #   s3transfer
