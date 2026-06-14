@@ -2,7 +2,7 @@
 
 [![PyPi status](https://img.shields.io/pypi/status/django-custom-storage.svg)](https://pypi.python.org/pypi/django-custom-storage)
 [![PyPi version](https://img.shields.io/pypi/v/django-custom-storage.svg)](https://pypi.python.org/pypi/django-custom-storage)
-[![Python version](https://img.shields.io/badge/python-3.9%20|%203.10%20|%203.11%20|%203.12%20|%203.13-blue.svg)]()
+[![PyPi python version](https://img.shields.io/pypi/pyversions/django-custom-storage.svg)](https://pypi.python.org/pypi/django-custom-storage)
 [![PyPi downloads](https://img.shields.io/pypi/dm/django-custom-storage.svg)](https://pypi.python.org/pypi/django-custom-storage)
 [![PyPi downloads](https://img.shields.io/pypi/dw/django-custom-storage.svg)](https://pypi.python.org/pypi/django-custom-storage)
 [![PyPi downloads](https://img.shields.io/pypi/dd/django-custom-storage.svg)](https://pypi.python.org/pypi/django-custom-storage)

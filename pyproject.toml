@@ -15,9 +15,17 @@ dynamic = ["version"]
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
-keywords = ["django", "S3", "compressor"]
+keywords = [
+    "django",
+    "S3",
+    "compressor",
+    "storage",
+    "aws",
+    "static-files",
+]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
+    "Topic :: System :: Archiving :: Backup",
     "Environment :: Web Environment",
     "Framework :: Django",
     "Framework :: Django :: 3.2",
@@ -63,6 +71,10 @@ linting = [
 
 [project.urls]
 Homepage = "https://github.com/DLRSP/django-custom-storage"
+Documentation = "https://github.com/DLRSP/django-custom-storage/"
+Repository = "https://github.com/DLRSP/django-custom-storage"
+Issues = "https://github.com/DLRSP/django-custom-storage/issues"
+Changelog = "https://github.com/DLRSP/django-custom-storage/blob/main/CHANGELOG.rst"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
@@ -108,7 +120,6 @@ ignore = [
     "docs/community/third-party-packages.md",
     "docs/tutorial/customize.md",
 ]
-["AGENTS.md"]
 
 # Read by flake8 when flake8-pyproject is installed (extra `linting`).
 [tool.mypy]
