@@ -102,7 +102,9 @@ if DJANGO_VERSION < (4, 2):
     if not FORCE_LOCAL_STORAGE:
         DEFAULT_FILE_STORAGE = "custom_storage.storage.MediaRootCachedS3Storage"
         if not os.getenv("RUN_COMPRESS", False):
-            STATICFILES_STORAGE = "custom_storage.storage.StaticRootCachedS3Storage"
+            STATICFILES_STORAGE = (
+                "custom_storage.storage.StaticRootCachedS3Storage"
+            )
     else:
         DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
     # For Django < 4.2, we need to set STORAGES manually for the storage classes to work
@@ -118,11 +120,15 @@ if DJANGO_VERSION < (4, 2):
 else:
     if not FORCE_LOCAL_STORAGE:
         STORAGES = {
-            "default": {"BACKEND": "custom_storage.storage.MediaRootCachedS3Storage"},
+            "default": {
+                "BACKEND": "custom_storage.storage.MediaRootCachedS3Storage"
+            },
         }
     else:
         STORAGES = {
-            "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+            "default": {
+                "BACKEND": "django.core.files.storage.FileSystemStorage"
+            },
         }
     if not os.getenv("RUN_COMPRESS", False):
         STORAGES.update(
@@ -135,7 +141,9 @@ else:
     # Add compressor and local storage backends needed by storage classes
     STORAGES.update(
         {
-            "compressor": {"BACKEND": "compressor.storage.CompressorFileStorage"},
+            "compressor": {
+                "BACKEND": "compressor.storage.CompressorFileStorage"
+            },
             "local": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
         }
     )
@@ -150,9 +158,7 @@ STATICFILES_FINDERS = (
 )
 COMPRESS_ROOT = STATIC_ROOT
 
-AWS_S3_CUSTOM_DOMAIN = (
-    f"{AWS_STORAGE_BUCKET_PREFIX}.{AWS_STORAGE_BUCKET_NAME}.{AWS_STORAGE_BUCKET_TLD}"
-)
+AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_PREFIX}.{AWS_STORAGE_BUCKET_NAME}.{AWS_STORAGE_BUCKET_TLD}"
 
 STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
 MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"

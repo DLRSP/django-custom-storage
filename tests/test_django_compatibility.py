@@ -38,7 +38,9 @@ class Django42STORAGESCompatibilityTestCase(TestCase):
 
     @override_settings(
         STORAGES={
-            "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
+            "default": {
+                "BACKEND": "django.core.files.storage.FileSystemStorage"
+            },
             "staticfiles": {
                 "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage"
             },
@@ -66,7 +68,8 @@ class DjangoDefaultFileStorageDeprecationTestCase(TestCase):
         # In Django 4.2+, DEFAULT_FILE_STORAGE should match STORAGES['default']['BACKEND']
         if DJANGO_VERSION >= (4, 2):
             self.assertEqual(
-                settings.DEFAULT_FILE_STORAGE, settings.STORAGES["default"]["BACKEND"]
+                settings.DEFAULT_FILE_STORAGE,
+                settings.STORAGES["default"]["BACKEND"],
             )
 
     def test_staticfiles_storage_exists_if_storages_staticfiles(self):
@@ -138,7 +141,9 @@ class Django52GetStorageClassRemovalTestCase(TestCase):
     def test_get_storage_class_import(self):
         """Test that get_storage_class import works or falls back"""
         try:
-            from django.core.files.storage import get_storage_class  # noqa: F401
+            from django.core.files.storage import (
+                get_storage_class,
+            )  # noqa: F401
 
             # If import works, it's Django < 5.1
             self.assertTrue(True, "get_storage_class available in older Django")
@@ -151,7 +156,9 @@ class Django52GetStorageClassRemovalTestCase(TestCase):
         from custom_storage.storage import get_storage_class
 
         # This should work in all Django versions due to our fallback
-        storage_class = get_storage_class("django.core.files.storage.FileSystemStorage")
+        storage_class = get_storage_class(
+            "django.core.files.storage.FileSystemStorage"
+        )
         self.assertTrue(callable(storage_class))
 
         # Should be able to instantiate
@@ -162,7 +169,9 @@ class Django52GetStorageClassRemovalTestCase(TestCase):
         """Test that import_string works as alternative to get_storage_class"""
         from django.utils.module_loading import import_string
 
-        storage_class = import_string("django.core.files.storage.FileSystemStorage")
+        storage_class = import_string(
+            "django.core.files.storage.FileSystemStorage"
+        )
         self.assertTrue(callable(storage_class))
 
         instance = storage_class()

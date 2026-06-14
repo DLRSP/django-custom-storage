@@ -24,12 +24,16 @@ class AWSClientErrorTestCase(TestCase):
 
     @patch("custom_storage.storage.S3Storage.save")
     @patch("custom_storage.storage.get_storage_class")
-    def test_save_handles_s3_client_error(self, mock_get_storage_class, mock_s3_save):
+    def test_save_handles_s3_client_error(
+        self, mock_get_storage_class, mock_s3_save
+    ):
         """Test that save handles boto3 ClientError exceptions"""
         from botocore.exceptions import ClientError
 
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
         mock_local_storage._open.return_value = BytesIO(self.test_content)
 
         storage = StaticRootCachedS3Storage()
@@ -53,12 +57,16 @@ class AWSClientErrorTestCase(TestCase):
 
     @patch("custom_storage.storage.S3Storage.save")
     @patch("custom_storage.storage.get_storage_class")
-    def test_save_handles_s3_access_denied(self, mock_get_storage_class, mock_s3_save):
+    def test_save_handles_s3_access_denied(
+        self, mock_get_storage_class, mock_s3_save
+    ):
         """Test that save handles AccessDenied errors"""
         from botocore.exceptions import ClientError
 
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
         mock_local_storage._open.return_value = BytesIO(self.test_content)
 
         storage = StaticRootCachedS3Storage()
@@ -84,7 +92,9 @@ class AWSClientErrorTestCase(TestCase):
         from botocore.exceptions import ClientError
 
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = MediaRootCachedS3Storage()
 
@@ -110,12 +120,16 @@ class AWSConnectionErrorTestCase(TestCase):
 
     @patch("custom_storage.storage.S3Storage.save")
     @patch("custom_storage.storage.get_storage_class")
-    def test_save_handles_connection_error(self, mock_get_storage_class, mock_s3_save):
+    def test_save_handles_connection_error(
+        self, mock_get_storage_class, mock_s3_save
+    ):
         """Test that save handles connection errors"""
         from botocore.exceptions import EndpointConnectionError
 
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
         mock_local_storage._open.return_value = BytesIO(b"content")
 
         storage = StaticRootCachedS3Storage()
@@ -130,12 +144,16 @@ class AWSConnectionErrorTestCase(TestCase):
 
     @patch("custom_storage.storage.S3Storage.save")
     @patch("custom_storage.storage.get_storage_class")
-    def test_save_handles_credential_error(self, mock_get_storage_class, mock_s3_save):
+    def test_save_handles_credential_error(
+        self, mock_get_storage_class, mock_s3_save
+    ):
         """Test that save handles credential errors"""
         from botocore.exceptions import NoCredentialsError
 
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
         mock_local_storage._open.return_value = BytesIO(b"content")
 
         storage = StaticRootCachedS3Storage()
@@ -151,11 +169,17 @@ class LocalStorageErrorTestCase(TestCase):
     """Test handling of local storage errors"""
 
     @patch("custom_storage.storage.get_storage_class")
-    def test_save_handles_local_storage_permission_error(self, mock_get_storage_class):
+    def test_save_handles_local_storage_permission_error(
+        self, mock_get_storage_class
+    ):
         """Test that save handles local storage PermissionError"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
-        mock_local_storage._save.side_effect = PermissionError("Permission denied")
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
+        mock_local_storage._save.side_effect = PermissionError(
+            "Permission denied"
+        )
 
         storage = StaticRootCachedS3Storage()
         content = ContentFile(b"test content")
@@ -168,7 +192,9 @@ class LocalStorageErrorTestCase(TestCase):
     def test_save_handles_local_storage_io_error(self, mock_get_storage_class):
         """Test that save handles local storage IOError"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
         mock_local_storage._save.side_effect = IOError("Disk full")
 
         storage = StaticRootCachedS3Storage()
@@ -178,12 +204,18 @@ class LocalStorageErrorTestCase(TestCase):
             storage.save("test.txt", content)
 
     @patch("custom_storage.storage.get_storage_class")
-    def test_delete_handles_local_storage_file_not_found(self, mock_get_storage_class):
+    def test_delete_handles_local_storage_file_not_found(
+        self, mock_get_storage_class
+    ):
         """Test that delete handles FileNotFoundError from local storage"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
         # Local storage raises FileNotFoundError, but delete continues
-        mock_local_storage.delete.side_effect = FileNotFoundError("File not found")
+        mock_local_storage.delete.side_effect = FileNotFoundError(
+            "File not found"
+        )
 
         storage = MediaRootCachedS3Storage()
 
@@ -199,10 +231,14 @@ class MediaStorageDeleteErrorTestCase(TestCase):
     """Test error handling in MediaRootCachedS3Storage.delete"""
 
     @patch("custom_storage.storage.get_storage_class")
-    def test_delete_handles_missing_optimized_files(self, mock_get_storage_class):
+    def test_delete_handles_missing_optimized_files(
+        self, mock_get_storage_class
+    ):
         """Test that delete handles missing webp/avif files gracefully"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         # Main file exists, optimized files don't
         def delete_side_effect(name):
@@ -229,7 +265,9 @@ class MediaStorageDeleteErrorTestCase(TestCase):
         from botocore.exceptions import ClientError
 
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = MediaRootCachedS3Storage()
 
@@ -306,10 +344,14 @@ class RetryAndResilienceTestCase(TestCase):
 
     @patch("custom_storage.storage.S3Storage.save")
     @patch("custom_storage.storage.get_storage_class")
-    def test_save_local_first_then_s3(self, mock_get_storage_class, mock_s3_save):
+    def test_save_local_first_then_s3(
+        self, mock_get_storage_class, mock_s3_save
+    ):
         """Test that save saves to local first, then S3 (local failure prevents S3 save)"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
         mock_local_storage._save.side_effect = IOError("Local storage failed")
 
         storage = StaticRootCachedS3Storage()
@@ -329,7 +371,9 @@ class RetryAndResilienceTestCase(TestCase):
     ):
         """Test that delete attempts both local and S3 deletion"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = MediaRootCachedS3Storage()
 
@@ -345,10 +389,14 @@ class EdgeCaseErrorTestCase(TestCase):
 
     @patch("custom_storage.storage.S3Storage.save")
     @patch("custom_storage.storage.get_storage_class")
-    def test_save_with_empty_content(self, mock_get_storage_class, mock_s3_save):
+    def test_save_with_empty_content(
+        self, mock_get_storage_class, mock_s3_save
+    ):
         """Test save with empty content (should not cause errors)"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
         mock_local_storage._open.return_value = BytesIO(b"")
 
         storage = StaticRootCachedS3Storage()
@@ -365,7 +413,9 @@ class EdgeCaseErrorTestCase(TestCase):
     ):
         """Test delete with special characters in filename"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = MediaRootCachedS3Storage()
 
@@ -380,10 +430,14 @@ class EdgeCaseErrorTestCase(TestCase):
 
     @patch("custom_storage.storage.S3Storage.save")
     @patch("custom_storage.storage.get_storage_class")
-    def test_save_with_very_long_filename(self, mock_get_storage_class, mock_s3_save):
+    def test_save_with_very_long_filename(
+        self, mock_get_storage_class, mock_s3_save
+    ):
         """Test save with very long filename"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
         mock_local_storage._open.return_value = BytesIO(b"content")
 
         storage = StaticRootCachedS3Storage()
@@ -410,7 +464,9 @@ class CompressorFileStorageErrorTestCase(TestCase):
     ):
         """Test that save handles errors when CompressorFileStorage._open() fails after _save()"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
         # _save succeeds, but _open fails
         mock_local_storage._save.return_value = None
         mock_local_storage._open.side_effect = IOError(
@@ -438,7 +494,9 @@ class CompressorFileStorageErrorTestCase(TestCase):
     ):
         """Test that save handles FileNotFoundError when CompressorFileStorage._open() can't find the file"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
         # _save succeeds, but _open can't find the file
         mock_local_storage._save.return_value = None
         mock_local_storage._open.side_effect = FileNotFoundError(
@@ -464,7 +522,9 @@ class CompressorFileStorageErrorTestCase(TestCase):
     ):
         """Test that save handles PermissionError when CompressorFileStorage._open() fails due to permissions"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
         # _save succeeds, but _open fails due to permissions
         mock_local_storage._save.return_value = None
         mock_local_storage._open.side_effect = PermissionError(
@@ -484,7 +544,9 @@ class CompressorFileStorageErrorTestCase(TestCase):
         mock_s3_save.assert_not_called()
 
     @patch("custom_storage.storage.get_storage_class")
-    def test_init_handles_invalid_compressor_backend(self, mock_get_storage_class):
+    def test_init_handles_invalid_compressor_backend(
+        self, mock_get_storage_class
+    ):
         """Test that initialization handles invalid compressor storage backend"""
         # Mock get_storage_class to raise ImportError for invalid compressor backend
         mock_get_storage_class.side_effect = ImportError(
@@ -505,7 +567,9 @@ class CompressorFileStorageErrorTestCase(TestCase):
         # Mock get_storage_class to return a class that raises an error when instantiated
         class FailingCompressorStorage:
             def __init__(self):
-                raise ImproperlyConfigured("COMPRESS_ROOT is not configured correctly")
+                raise ImproperlyConfigured(
+                    "COMPRESS_ROOT is not configured correctly"
+                )
 
         mock_get_storage_class.return_value = FailingCompressorStorage
 
@@ -520,7 +584,9 @@ class CompressorFileStorageErrorTestCase(TestCase):
     ):
         """Test that save uses CompressorFileStorage correctly (verifies integration)"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
         mock_local_storage._open.return_value = BytesIO(self.test_content)
 
         storage = StaticRootCachedS3Storage()
@@ -530,7 +596,9 @@ class CompressorFileStorageErrorTestCase(TestCase):
         result = storage.save(self.test_file_name, content)
 
         # Verify CompressorFileStorage methods were called
-        mock_local_storage._save.assert_called_once_with(self.test_file_name, content)
+        mock_local_storage._save.assert_called_once_with(
+            self.test_file_name, content
+        )
         mock_local_storage._open.assert_called_once_with(self.test_file_name)
         # Verify S3 save was called with the opened file
         mock_s3_save.assert_called_once()
@@ -543,10 +611,14 @@ class CompressorFileStorageErrorTestCase(TestCase):
         self.assertEqual(result, self.test_file_name)
 
     @patch("custom_storage.storage.get_storage_class")
-    def test_static_storage_uses_compressor_backend(self, mock_get_storage_class):
+    def test_static_storage_uses_compressor_backend(
+        self, mock_get_storage_class
+    ):
         """Test that StaticRootCachedS3Storage uses compressor backend from STORAGES"""
         mock_compressor_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_compressor_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_compressor_storage
+        )
 
         storage = StaticRootCachedS3Storage()
 
@@ -566,7 +638,9 @@ class CompressorFileStorageErrorTestCase(TestCase):
     ):
         """Test that save handles OSError when CompressorFileStorage operations fail"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
         # _save succeeds, but _open raises OSError
         mock_local_storage._save.return_value = None
         mock_local_storage._open.side_effect = OSError(

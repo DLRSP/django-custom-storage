@@ -73,7 +73,9 @@ class AppConfigTestCase(TestCase):
     def test_app_config_has_default_auto_field(self):
         """Test that app config has default_auto_field set"""
         app_config = apps.get_app_config("custom_storage")
-        self.assertEqual(app_config.default_auto_field, "django.db.models.AutoField")
+        self.assertEqual(
+            app_config.default_auto_field, "django.db.models.AutoField"
+        )
 
     def test_app_config_in_installed_apps(self):
         """Test that custom_storage is in INSTALLED_APPS"""
@@ -283,7 +285,9 @@ class CompressionConfigurationTestCase(TestCase):
         """Test that COMPRESS_CSS_HASHING_METHOD is set"""
         self.assertTrue(hasattr(settings, "COMPRESS_CSS_HASHING_METHOD"))
         # Can be None, which is valid
-        self.assertIn(settings.COMPRESS_CSS_HASHING_METHOD, [None, "content", "mtime"])
+        self.assertIn(
+            settings.COMPRESS_CSS_HASHING_METHOD, [None, "content", "mtime"]
+        )
 
 
 class EnvironmentConfigurationTestCase(TestCase):
@@ -349,7 +353,9 @@ class IntegrationConfigurationTestCase(TestCase):
         self.assertIsInstance(settings.STORAGES["compressor"]["BACKEND"], str)
         self.assertIsInstance(settings.STORAGES["local"]["BACKEND"], str)
         if "staticfiles" in settings.STORAGES:
-            self.assertIsInstance(settings.STORAGES["staticfiles"]["BACKEND"], str)
+            self.assertIsInstance(
+                settings.STORAGES["staticfiles"]["BACKEND"], str
+            )
 
     def test_storage_backends_are_not_empty(self):
         """Test that storage backend paths are not empty"""

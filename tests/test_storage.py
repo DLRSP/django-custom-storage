@@ -37,7 +37,9 @@ class StaticRootCachedS3StorageTestCase(TestCase):
     def test_init_with_defaults(self, mock_get_storage_class):
         """Test initialization with default values"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = StaticRootCachedS3Storage()
 
@@ -50,7 +52,9 @@ class StaticRootCachedS3StorageTestCase(TestCase):
     def test_init_with_custom_location(self, mock_get_storage_class):
         """Test initialization with custom location"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         # location and base_url are passed to super() but not set as instance attributes
         # if explicitly provided, they need to be passed via **kwargs to S3Storage
@@ -64,7 +68,9 @@ class StaticRootCachedS3StorageTestCase(TestCase):
     def test_init_with_custom_base_url(self, mock_get_storage_class):
         """Test initialization with custom base_url"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         # base_url is passed to super() but not set as instance attribute if explicitly provided
         storage = StaticRootCachedS3Storage()
@@ -96,7 +102,9 @@ class StaticRootCachedS3StorageTestCase(TestCase):
         mock_file = Mock()
         mock_file.read.return_value = self.test_content
         mock_local_storage._open.return_value = mock_file
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = StaticRootCachedS3Storage()
         content = ContentFile(self.test_content)
@@ -104,7 +112,9 @@ class StaticRootCachedS3StorageTestCase(TestCase):
         result = storage.save(self.test_file_name, content)
 
         # Verify local storage was used
-        mock_local_storage._save.assert_called_once_with(self.test_file_name, content)
+        mock_local_storage._save.assert_called_once_with(
+            self.test_file_name, content
+        )
         mock_local_storage._open.assert_called_once_with(self.test_file_name)
 
         # Verify S3 save was called
@@ -121,7 +131,9 @@ class StaticRootCachedS3StorageTestCase(TestCase):
         mock_file = Mock()
         mock_file.read.return_value = self.test_content
         mock_local_storage._open.return_value = mock_file
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = StaticRootCachedS3Storage()
         content = ContentFile(self.test_content)
@@ -150,7 +162,9 @@ class MediaRootCachedS3StorageTestCase(TestCase):
     def test_init_with_defaults(self, mock_get_storage_class):
         """Test initialization with default values"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = MediaRootCachedS3Storage()
 
@@ -163,7 +177,9 @@ class MediaRootCachedS3StorageTestCase(TestCase):
     def test_init_with_custom_location(self, mock_get_storage_class):
         """Test initialization with custom location"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         # location is passed to super() but not set as instance attribute if explicitly provided
         storage = MediaRootCachedS3Storage()
@@ -175,7 +191,9 @@ class MediaRootCachedS3StorageTestCase(TestCase):
     def test_init_with_custom_base_url(self, mock_get_storage_class):
         """Test initialization with custom base_url"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         # base_url is passed to super() but not set as instance attribute if explicitly provided
         storage = MediaRootCachedS3Storage()
@@ -205,14 +223,18 @@ class MediaRootCachedS3StorageTestCase(TestCase):
         mock_file = Mock()
         mock_file.read.return_value = self.test_content
         mock_local_storage._open.return_value = mock_file
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = MediaRootCachedS3Storage()
         content = ContentFile(self.test_content)
 
         result = storage.save(self.test_file_name, content)
 
-        mock_local_storage._save.assert_called_once_with(self.test_file_name, content)
+        mock_local_storage._save.assert_called_once_with(
+            self.test_file_name, content
+        )
         mock_local_storage._open.assert_called_once_with(self.test_file_name)
         mock_s3_save.assert_called_once_with(self.test_file_name, mock_file)
         self.assertEqual(result, self.test_file_name)
@@ -222,7 +244,9 @@ class MediaRootCachedS3StorageTestCase(TestCase):
     def test_delete(self, mock_get_storage_class, mock_s3_delete):
         """Test delete method deletes from both local and S3, including optimized formats"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = MediaRootCachedS3Storage()
 
@@ -257,7 +281,9 @@ class MediaRootCachedS3StorageTestCase(TestCase):
             return None
 
         mock_local_storage.delete.side_effect = delete_side_effect
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = MediaRootCachedS3Storage()
 
@@ -326,7 +352,9 @@ class StorageIntegrationTestCase(TestCase):
     def test_static_storage_location_default(self, mock_get_storage_class):
         """Test StaticRootCachedS3Storage uses correct default location"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = StaticRootCachedS3Storage()
         self.assertEqual(storage.location, AWS_S3_STATIC_LOCATION)
@@ -335,20 +363,26 @@ class StorageIntegrationTestCase(TestCase):
     def test_media_storage_location_default(self, mock_get_storage_class):
         """Test MediaRootCachedS3Storage uses correct default location"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = MediaRootCachedS3Storage()
         self.assertEqual(storage.location, AWS_S3_MEDIA_LOCATION)
 
     @patch("custom_storage.storage.S3Storage.save")
     @patch("custom_storage.storage.get_storage_class")
-    def test_static_storage_save_flow(self, mock_get_storage_class, mock_s3_save):
+    def test_static_storage_save_flow(
+        self, mock_get_storage_class, mock_s3_save
+    ):
         """Test complete save flow for static storage"""
         mock_local_storage = Mock()
         mock_file = Mock()
         mock_file.read.return_value = b"content"
         mock_local_storage._open.return_value = mock_file
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = StaticRootCachedS3Storage()
         content = ContentFile(b"test content")
@@ -362,13 +396,17 @@ class StorageIntegrationTestCase(TestCase):
 
     @patch("custom_storage.storage.S3Storage.save")
     @patch("custom_storage.storage.get_storage_class")
-    def test_media_storage_save_flow(self, mock_get_storage_class, mock_s3_save):
+    def test_media_storage_save_flow(
+        self, mock_get_storage_class, mock_s3_save
+    ):
         """Test complete save flow for media storage"""
         mock_local_storage = Mock()
         mock_file = Mock()
         mock_file.read.return_value = b"content"
         mock_local_storage._open.return_value = mock_file
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = MediaRootCachedS3Storage()
         content = ContentFile(b"test content")
@@ -385,37 +423,53 @@ class StorageEdgeCasesTestCase(TestCase):
     """Test edge cases and error handling"""
 
     @patch("custom_storage.storage.get_storage_class")
-    def test_static_storage_location_none_uses_default(self, mock_get_storage_class):
+    def test_static_storage_location_none_uses_default(
+        self, mock_get_storage_class
+    ):
         """Test that location=None uses default"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = StaticRootCachedS3Storage(location=None)
         self.assertEqual(storage.location, AWS_S3_STATIC_LOCATION)
 
     @patch("custom_storage.storage.get_storage_class")
-    def test_media_storage_location_none_uses_default(self, mock_get_storage_class):
+    def test_media_storage_location_none_uses_default(
+        self, mock_get_storage_class
+    ):
         """Test that location=None uses default"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = MediaRootCachedS3Storage(location=None)
         self.assertEqual(storage.location, AWS_S3_MEDIA_LOCATION)
 
     @patch("custom_storage.storage.get_storage_class")
-    def test_static_storage_base_url_none_uses_default(self, mock_get_storage_class):
+    def test_static_storage_base_url_none_uses_default(
+        self, mock_get_storage_class
+    ):
         """Test that base_url=None uses default"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = StaticRootCachedS3Storage(base_url=None)
         self.assertEqual(storage.base_url, AWS_S3_STATIC_URL)
 
     @patch("custom_storage.storage.get_storage_class")
-    def test_media_storage_base_url_none_uses_default(self, mock_get_storage_class):
+    def test_media_storage_base_url_none_uses_default(
+        self, mock_get_storage_class
+    ):
         """Test that base_url=None uses default"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = MediaRootCachedS3Storage(base_url=None)
         self.assertEqual(storage.base_url, AWS_S3_MEDIA_URL)
@@ -428,7 +482,9 @@ class StorageEdgeCasesTestCase(TestCase):
         mock_file = Mock()
         mock_file.read.return_value = b""
         mock_local_storage._open.return_value = mock_file
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = StaticRootCachedS3Storage()
         content = ContentFile(b"")
@@ -438,18 +494,26 @@ class StorageEdgeCasesTestCase(TestCase):
 
     @patch("custom_storage.storage.S3Storage.delete")
     @patch("custom_storage.storage.get_storage_class")
-    def test_delete_file_with_path(self, mock_get_storage_class, mock_s3_delete):
+    def test_delete_file_with_path(
+        self, mock_get_storage_class, mock_s3_delete
+    ):
         """Test deleting file with path"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = MediaRootCachedS3Storage()
 
         storage.delete("folder/subfolder/file.jpg")
 
         # Verify optimized formats use the full path
-        mock_local_storage.delete.assert_any_call("folder/subfolder/file.jpg.webp")
-        mock_local_storage.delete.assert_any_call("folder/subfolder/file.jpg.avif")
+        mock_local_storage.delete.assert_any_call(
+            "folder/subfolder/file.jpg.webp"
+        )
+        mock_local_storage.delete.assert_any_call(
+            "folder/subfolder/file.jpg.avif"
+        )
 
     @patch("custom_storage.storage.S3Storage.delete")
     @patch("custom_storage.storage.get_storage_class")
@@ -458,7 +522,9 @@ class StorageEdgeCasesTestCase(TestCase):
     ):
         """Test deleting file without extension"""
         mock_local_storage = Mock()
-        mock_get_storage_class.return_value = Mock(return_value=mock_local_storage)
+        mock_get_storage_class.return_value = Mock(
+            return_value=mock_local_storage
+        )
 
         storage = MediaRootCachedS3Storage()
 

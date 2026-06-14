@@ -79,7 +79,9 @@ class MediaRootCachedS3Storage(S3Storage):
 
     def save(self, name, content, max_length=None):
         self.local_storage._save(name, content)
-        super(MediaRootCachedS3Storage, self).save(name, self.local_storage._open(name))
+        super(MediaRootCachedS3Storage, self).save(
+            name, self.local_storage._open(name)
+        )
         return name
 
     def delete(self, name):

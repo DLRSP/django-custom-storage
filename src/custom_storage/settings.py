@@ -51,7 +51,9 @@ if not AWS_S3_STATIC_URL.endswith("/"):
     raise ImproperlyConfigured(
         "The STATIC_URL and AWS_S3_STATIC_URL settings must have a trailing slash."
     )
-AWS_S3_STATIC_ROOT = getattr(settings, "AWS_S3_STATIC_ROOT", settings.STATIC_ROOT)
+AWS_S3_STATIC_ROOT = getattr(
+    settings, "AWS_S3_STATIC_ROOT", settings.STATIC_ROOT
+)
 AWS_S3_STATIC_LOCATION = getattr(settings, "AWS_S3_STATIC_LOCATION", "static")
 
 AWS_S3_MEDIA_URL = getattr(settings, "AWS_S3_MEDIA_URL", settings.MEDIA_URL)
@@ -62,7 +64,9 @@ if not AWS_S3_MEDIA_URL.endswith("/"):
 AWS_S3_MEDIA_ROOT = getattr(settings, "AWS_S3_MEDIA_ROOT", settings.MEDIA_ROOT)
 AWS_S3_MEDIA_LOCATION = getattr(settings, "AWS_S3_MEDIA_LOCATION", "media")
 
-AWS_S3_COMPRESS_ROOT = getattr(settings, "AWS_S3_COMPRESS_ROOT", AWS_S3_STATIC_ROOT)
+AWS_S3_COMPRESS_ROOT = getattr(
+    settings, "AWS_S3_COMPRESS_ROOT", AWS_S3_STATIC_ROOT
+)
 settings.COMPRESS_ROOT = AWS_S3_COMPRESS_ROOT
 
 # Add option to FORCE_LOCAL_STORAGE
@@ -111,7 +115,9 @@ else:
             "BACKEND"
         ] = "custom_storage.storage.StaticRootCachedS3Storage"
 
-settings.COMPRESS_OUTPUT_DIR = setting("COMPRESS_OUTPUT_DIR", "compressed_static")
+settings.COMPRESS_OUTPUT_DIR = setting(
+    "COMPRESS_OUTPUT_DIR", "compressed_static"
+)
 settings.COMPRESS_STORAGE = setting(
     "COMPRESS_STORAGE", settings.STORAGES["staticfiles"]["BACKEND"]
 )
@@ -145,7 +151,9 @@ settings.STATICFILES_FINDERS = setting(
         "compressor.finders.CompressorFinder",
     ),
 )
-settings.COMPRESS_CSS_HASHING_METHOD = setting("COMPRESS_CSS_HASHING_METHOD", None)
+settings.COMPRESS_CSS_HASHING_METHOD = setting(
+    "COMPRESS_CSS_HASHING_METHOD", None
+)
 settings.COMPRESS_CSS_FILTERS = setting(
     "COMPRESS_CSS_FILTERS",
     [
@@ -160,7 +168,9 @@ settings.COMPRESS_JS_FILTERS = setting(
         "compressor.filters.jsmin.JSMinFilter",
     ],
 )
-settings.KEEP_COMMENTS_ON_MINIFYING = setting("KEEP_COMMENTS_ON_MINIFYING", False)
+settings.KEEP_COMMENTS_ON_MINIFYING = setting(
+    "KEEP_COMMENTS_ON_MINIFYING", False
+)
 settings.HTML_MINIFY = setting("HTML_MINIFY", True)
 
 # # overwrite settings for local DEBUG mode
