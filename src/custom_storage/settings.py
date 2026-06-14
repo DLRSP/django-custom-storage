@@ -33,8 +33,10 @@ if settings.DEBUG:
     settings.configure(COMPRESS_URL=settings.STATIC_URL)
 
     # todo: check how tow
-    #settings.configure(STORAGES=settings.STORAGES["default"]["BACKEND"]("django.contrib.staticfiles.storage.StaticFilesStorage"))
-    settings.STORAGES["default"]["BACKEND"] = "django.contrib.staticfiles.storage.StaticFilesStorage"
+    # settings.configure(STORAGES=settings.STORAGES["default"]["BACKEND"]("django.contrib.staticfiles.storage.StaticFilesStorage"))
+    settings.STORAGES["default"][
+        "BACKEND"
+    ] = "django.contrib.staticfiles.storage.StaticFilesStorage"
     settings.STATICFILES_FINDERS = (
         "django.contrib.staticfiles.finders.FileSystemFinder",
         "django.contrib.staticfiles.finders.AppDirectoriesFinder",
