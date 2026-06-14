@@ -14,6 +14,8 @@
       
       
       
+        <link rel="next" href="community/references/">
+      
       
         
       
@@ -670,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/references.md" class="md-nav__link">
+      <a href="community/references/" class="md-nav__link">
         
   
   
@@ -929,7 +931,7 @@
 </ul>
 <h2 id="requirements"><a class="toclink" href="#requirements">Requirements</a></h2>
 <ul>
-<li>Python 3.8 or higher</li>
+<li>Python 3.9 or higher</li>
 <li>Django 3.2 or higher</li>
 <li>django-storages (for S3 backend)</li>
 <li>django-compressor (for static file compression)</li>
@@ -955,14 +957,16 @@
 <span class="n">AWS_STORAGE_BUCKET_NAME</span> <span class="o">=</span> <span class="s2">&quot;your_bucket_name&quot;</span>
 <span class="n">AWS_STORAGE_BUCKET_TLD</span> <span class="o">=</span> <span class="s2">&quot;com&quot;</span>
 
-<span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s1">&#39;YOUR_AWS_ACCESS_KEY_ID&#39;</span>
-<span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s1">&#39;YOUR_AWS_SECRET_ACCESS_KEY&#39;</span>
-<span class="n">AWS_S3_CUSTOM_DOMAIN</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_PREFIX</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_NAME</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_TLD</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s2">&quot;YOUR_AWS_ACCESS_KEY_ID&quot;</span>
+<span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s2">&quot;YOUR_AWS_SECRET_ACCESS_KEY&quot;</span>
+<span class="n">AWS_S3_CUSTOM_DOMAIN</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_PREFIX</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_NAME</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_TLD</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
 
 <span class="c1"># File paths</span>
-<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="s1">&#39;/var/opt/your_project/mediaroot/&#39;</span>
-<span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="s1">&#39;/var/cache/your_project/staticroot/&#39;</span>
-<span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s1">&#39;/static/&#39;</span>
+<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="s2">&quot;/var/opt/your_project/mediaroot/&quot;</span>
+<span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="s2">&quot;/var/cache/your_project/staticroot/&quot;</span>
+<span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s2">&quot;/static/&quot;</span>
 </code></pre></div>
 <h3 id="3-configure-storage-backends"><a class="toclink" href="#3-configure-storage-backends">3. Configure Storage Backends</a></h3>
 <p>Configure the storage backends for static and media files:</p>
@@ -977,20 +981,20 @@
 <span class="p">}</span>
 
 <span class="c1"># For Django &lt; 4.2</span>
-<span class="n">DEFAULT_FILE_STORAGE</span> <span class="o">=</span> <span class="s1">&#39;custom_storage.storage.MediaRootCachedS3Storage&#39;</span>
-<span class="n">STATICFILES_STORAGE</span> <span class="o">=</span> <span class="s1">&#39;custom_storage.storage.StaticRootCachedS3Storage&#39;</span>
+<span class="n">DEFAULT_FILE_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;custom_storage.storage.MediaRootCachedS3Storage&quot;</span>
+<span class="n">STATICFILES_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;custom_storage.storage.StaticRootCachedS3Storage&quot;</span>
 </code></pre></div>
 <h3 id="4-configure-django-compressor-optional"><a class="toclink" href="#4-configure-django-compressor-optional">4. Configure django-compressor (Optional)</a></h3>
 <p>If you want to use compression:</p>
 <div class="highlight"><pre><span></span><code><span class="n">COMPRESS_ENABLED</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">COMPRESS_OFFLINE</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">COMPRESS_STORAGE</span> <span class="o">=</span> <span class="s1">&#39;custom_storage.storage.StaticRootCachedS3Storage&#39;</span>
+<span class="n">COMPRESS_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;custom_storage.storage.StaticRootCachedS3Storage&quot;</span>
 <span class="n">COMPRESS_ROOT</span> <span class="o">=</span> <span class="n">STATIC_ROOT</span>
 
 <span class="n">STATICFILES_FINDERS</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s1">&#39;django.contrib.staticfiles.finders.FileSystemFinder&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;django.contrib.staticfiles.finders.AppDirectoriesFinder&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;compressor.finders.CompressorFinder&#39;</span><span class="p">,</span>
+    <span class="s2">&quot;django.contrib.staticfiles.finders.FileSystemFinder&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;django.contrib.staticfiles.finders.AppDirectoriesFinder&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;compressor.finders.CompressorFinder&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>That's it! Your Django project is now configured to use custom storage backends with S3 and local caching.</p>
