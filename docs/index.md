@@ -13,7 +13,7 @@ Django Custom Storage provides custom storage backends for Django that integrate
 
 ## Requirements
 
-- Python 3.8 or higher
+- Python 3.9 or higher
 - Django 3.2 or higher
 - django-storages (for S3 backend)
 - django-compressor (for static file compression)
@@ -51,14 +51,16 @@ AWS_STORAGE_BUCKET_PREFIX = "cdn"
 AWS_STORAGE_BUCKET_NAME = "your_bucket_name"
 AWS_STORAGE_BUCKET_TLD = "com"
 
-AWS_ACCESS_KEY_ID = 'YOUR_AWS_ACCESS_KEY_ID'
-AWS_SECRET_ACCESS_KEY = 'YOUR_AWS_SECRET_ACCESS_KEY'
-AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_PREFIX}.{AWS_STORAGE_BUCKET_NAME}.{AWS_STORAGE_BUCKET_TLD}"
+AWS_ACCESS_KEY_ID = "YOUR_AWS_ACCESS_KEY_ID"
+AWS_SECRET_ACCESS_KEY = "YOUR_AWS_SECRET_ACCESS_KEY"
+AWS_S3_CUSTOM_DOMAIN = (
+    f"{AWS_STORAGE_BUCKET_PREFIX}.{AWS_STORAGE_BUCKET_NAME}.{AWS_STORAGE_BUCKET_TLD}"
+)
 
 # File paths
-MEDIA_ROOT = '/var/opt/your_project/mediaroot/'
-STATIC_ROOT = '/var/cache/your_project/staticroot/'
-STATIC_URL = '/static/'
+MEDIA_ROOT = "/var/opt/your_project/mediaroot/"
+STATIC_ROOT = "/var/cache/your_project/staticroot/"
+STATIC_URL = "/static/"
 ```
 
 ### 3. Configure Storage Backends
@@ -77,8 +79,8 @@ STORAGES = {
 }
 
 # For Django < 4.2
-DEFAULT_FILE_STORAGE = 'custom_storage.storage.MediaRootCachedS3Storage'
-STATICFILES_STORAGE = 'custom_storage.storage.StaticRootCachedS3Storage'
+DEFAULT_FILE_STORAGE = "custom_storage.storage.MediaRootCachedS3Storage"
+STATICFILES_STORAGE = "custom_storage.storage.StaticRootCachedS3Storage"
 ```
 
 ### 4. Configure django-compressor (Optional)
@@ -88,13 +90,13 @@ If you want to use compression:
 ```python
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True
-COMPRESS_STORAGE = 'custom_storage.storage.StaticRootCachedS3Storage'
+COMPRESS_STORAGE = "custom_storage.storage.StaticRootCachedS3Storage"
 COMPRESS_ROOT = STATIC_ROOT
 
 STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'compressor.finders.CompressorFinder',
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+    "compressor.finders.CompressorFinder",
 )
 ```
 
