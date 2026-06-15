@@ -1,0 +1,3 @@
+django
+django-storages[s3]
+django_compressor
