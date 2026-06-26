@@ -2,10 +2,10 @@
 
 import os
 
-from django.test import TestCase, override_settings
 from django.apps import apps
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
+from django.test import TestCase, override_settings
 
 import custom_storage
 from custom_storage.apps import CustomStorageConfig
@@ -37,10 +37,10 @@ class ModuleInstallationTestCase(TestCase):
     def test_storage_classes_can_be_imported(self):
         """Test that storage classes can be imported"""
         from custom_storage.storage import (
-            StaticRootCachedS3Storage,
             MediaRootCachedS3Storage,
-            PublicMediaS3Boto3Storage,
             PrivateMediaS3Boto3Storage,
+            PublicMediaS3Boto3Storage,
+            StaticRootCachedS3Storage,
         )
 
         self.assertTrue(StaticRootCachedS3Storage)
@@ -143,6 +143,7 @@ class SettingsConfigurationTestCase(TestCase):
         with self.assertRaises(ImproperlyConfigured):
             # Reload settings module to trigger validation
             import importlib
+
             import custom_storage.settings as settings_module
 
             importlib.reload(settings_module)
@@ -208,9 +209,13 @@ class STORAGESConfigurationTestCase(TestCase):
         )
 
     def test_default_file_storage_is_set(self):
-        """Test that DEFAULT_FILE_STORAGE is set"""
-        self.assertTrue(hasattr(settings, "DEFAULT_FILE_STORAGE"))
-        self.assertIsNotNone(settings.DEFAULT_FILE_STORAGE)
+        """Test that the default storage backend is configured via STORAGES.
+
+        DEFAULT_FILE_STORAGE was deprecated in Django 4.2 and removed in 5.1;
+        STORAGES['default'] is the source of truth on supported Django.
+        """
+        self.assertIn("default", settings.STORAGES)
+        self.assertIsNotNone(settings.STORAGES["default"]["BACKEND"])
 
     def test_thumbnail_default_storage_is_set(self):
         """Test that THUMBNAIL_DEFAULT_STORAGE is set"""
@@ -333,7 +338,6 @@ class IntegrationConfigurationTestCase(TestCase):
             "COMPRESS_ENABLED",
             "COMPRESS_OFFLINE",
             "STORAGES",
-            "DEFAULT_FILE_STORAGE",
         ]
 
         for setting_name in required_settings:

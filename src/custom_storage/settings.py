@@ -1,9 +1,11 @@
 import datetime
-import sys
-import os
 import logging
-from django.core.exceptions import ImproperlyConfigured
+import os
+import sys
+
+import django
 from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
 
 logger = logging.getLogger(__name__)
 
@@ -98,11 +100,18 @@ else:
 #     },
 # }
 
-settings.DEFAULT_FILE_STORAGE = setting(
-    "DEFAULT_FILE_STORAGE", settings.STORAGES["default"]["BACKEND"]
-)
+# DEFAULT_FILE_STORAGE was deprecated in Django 4.2 and removed in 5.1; reading
+# or assigning it raises under -W error::DeprecationWarning. Derive the default
+# backend from the modern STORAGES setting instead (honoring a legacy override
+# only on Django < 4.2, where the alias is still the source of truth).
+if django.VERSION < (4, 2):
+    _default_backend = setting(
+        "DEFAULT_FILE_STORAGE", settings.STORAGES["default"]["BACKEND"]
+    )
+else:
+    _default_backend = settings.STORAGES["default"]["BACKEND"]
 settings.THUMBNAIL_DEFAULT_STORAGE = setting(
-    "THUMBNAIL_DEFAULT_STORAGE", settings.DEFAULT_FILE_STORAGE
+    "THUMBNAIL_DEFAULT_STORAGE", _default_backend
 )
 
 if settings.FORCE_LOCAL_STORAGE:

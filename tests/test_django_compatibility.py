@@ -1,8 +1,8 @@
 """Tests for Django version compatibility (4.2 vs 5.2)"""
 
-from django.test import TestCase, override_settings
-from django.conf import settings
 from django import VERSION as DJANGO_VERSION
+from django.conf import settings
+from django.test import TestCase, override_settings
 
 
 class Django42STORAGESCompatibilityTestCase(TestCase):
@@ -55,33 +55,33 @@ class Django42STORAGESCompatibilityTestCase(TestCase):
 
 
 class DjangoDefaultFileStorageDeprecationTestCase(TestCase):
-    """Test DEFAULT_FILE_STORAGE deprecation vs STORAGES"""
+    """Test the STORAGES-based default storage configuration.
 
-    def test_default_file_storage_exists(self):
-        """Test that DEFAULT_FILE_STORAGE still exists (backward compatibility)"""
-        # DEFAULT_FILE_STORAGE is deprecated but still supported for backward compatibility
-        self.assertTrue(hasattr(settings, "DEFAULT_FILE_STORAGE"))
-        self.assertIsNotNone(settings.DEFAULT_FILE_STORAGE)
+    DEFAULT_FILE_STORAGE / STATICFILES_STORAGE were deprecated in Django 4.2 and
+    removed in 5.1; accessing them raises under -W error::DeprecationWarning, so
+    on supported Django the default backend is read from STORAGES instead.
+    """
 
-    def test_default_file_storage_matches_storages(self):
-        """Test that DEFAULT_FILE_STORAGE matches STORAGES['default']['BACKEND']"""
-        # In Django 4.2+, DEFAULT_FILE_STORAGE should match STORAGES['default']['BACKEND']
-        if DJANGO_VERSION >= (4, 2):
+    def test_default_backend_configured_via_storages(self):
+        """The default backend is configured via STORAGES['default']."""
+        self.assertIn("default", settings.STORAGES)
+        self.assertIsNotNone(settings.STORAGES["default"]["BACKEND"])
+
+    def test_legacy_default_file_storage_only_pre_42(self):
+        """The deprecated alias is only consulted on Django < 4.2."""
+        if DJANGO_VERSION < (4, 2):
+            self.assertTrue(hasattr(settings, "DEFAULT_FILE_STORAGE"))
             self.assertEqual(
                 settings.DEFAULT_FILE_STORAGE,
                 settings.STORAGES["default"]["BACKEND"],
             )
 
-    def test_staticfiles_storage_exists_if_storages_staticfiles(self):
-        """Test STATICFILES_STORAGE exists when STORAGES['staticfiles'] is set"""
-        # STATICFILES_STORAGE is deprecated but still supported
+    def test_staticfiles_backend_via_storages(self):
+        """Staticfiles backend, when present, lives in STORAGES['staticfiles']."""
         if "staticfiles" in settings.STORAGES:
-            if hasattr(settings, "STATICFILES_STORAGE"):
-                # They should match
-                self.assertEqual(
-                    settings.STATICFILES_STORAGE,
-                    settings.STORAGES["staticfiles"]["BACKEND"],
-                )
+            self.assertIsNotNone(
+                settings.STORAGES["staticfiles"]["BACKEND"]
+            )
 
 
 class DjangoStorageObjectTestCase(TestCase):
@@ -141,9 +141,9 @@ class Django52GetStorageClassRemovalTestCase(TestCase):
     def test_get_storage_class_import(self):
         """Test that get_storage_class import works or falls back"""
         try:
-            from django.core.files.storage import (
+            from django.core.files.storage import (  # noqa: F401
                 get_storage_class,
-            )  # noqa: F401
+            )
 
             # If import works, it's Django < 5.1
             self.assertTrue(True, "get_storage_class available in older Django")
@@ -210,8 +210,8 @@ class DjangoVersionSpecificBehaviorTestCase(TestCase):
     def test_custom_storage_classes_work_all_versions(self):
         """Test that custom storage classes work in all Django versions"""
         from custom_storage.storage import (
-            StaticRootCachedS3Storage,
             MediaRootCachedS3Storage,
+            StaticRootCachedS3Storage,
         )
 
         # Should be able to instantiate (with mocked dependencies)
@@ -224,36 +224,34 @@ class DjangoMigrationPathTestCase(TestCase):
     """Test migration path from old to new storage API"""
 
     def test_both_default_file_storage_and_storages_exist(self):
-        """Test that both old and new settings exist (transition period)"""
-        # During migration, both might exist
-        has_default_file_storage = hasattr(settings, "DEFAULT_FILE_STORAGE")
-        has_storages = hasattr(settings, "STORAGES")
+        """STORAGES is the source of truth; the legacy alias is only consulted
+        on Django < 4.2 (accessing it on 4.2+ raises under -W error)."""
+        self.assertTrue(hasattr(settings, "STORAGES"))
+        self.assertIn("default", settings.STORAGES)
 
-        # At least one should exist
-        self.assertTrue(has_default_file_storage or has_storages)
-
-        # If both exist, they should be consistent
-        if has_default_file_storage and has_storages:
-            if DJANGO_VERSION >= (4, 2):
-                self.assertEqual(
-                    settings.DEFAULT_FILE_STORAGE,
-                    settings.STORAGES["default"]["BACKEND"],
-                )
+        if DJANGO_VERSION < (4, 2) and hasattr(
+            settings, "DEFAULT_FILE_STORAGE"
+        ):
+            self.assertEqual(
+                settings.DEFAULT_FILE_STORAGE,
+                settings.STORAGES["default"]["BACKEND"],
+            )
 
     def test_staticfiles_storage_consistency(self):
-        """Test consistency between STATICFILES_STORAGE and STORAGES['staticfiles']"""
-        has_staticfiles_storage = hasattr(settings, "STATICFILES_STORAGE")
+        """STATICFILES_STORAGE (legacy) consistency is only checked on Django
+        < 4.2; on 4.2+ STORAGES['staticfiles'] is authoritative."""
         has_storages_staticfiles = (
             hasattr(settings, "STORAGES") and "staticfiles" in settings.STORAGES
         )
-
-        # If both exist, they should match
-        if has_staticfiles_storage and has_storages_staticfiles:
-            if DJANGO_VERSION >= (4, 2):
-                self.assertEqual(
-                    settings.STATICFILES_STORAGE,
-                    settings.STORAGES["staticfiles"]["BACKEND"],
-                )
+        if (
+            DJANGO_VERSION < (4, 2)
+            and has_storages_staticfiles
+            and hasattr(settings, "STATICFILES_STORAGE")
+        ):
+            self.assertEqual(
+                settings.STATICFILES_STORAGE,
+                settings.STORAGES["staticfiles"]["BACKEND"],
+            )
 
 
 class DjangoStorageBackendCompatibilityTestCase(TestCase):
