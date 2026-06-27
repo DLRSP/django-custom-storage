@@ -10,29 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://github.com/DLRSP/django-custom-storage/">
+        <link rel="canonical" href="https://github.com/DLRSP/django-custom-storage/tutorial/storage-classes/">
       
       
+        <link rel="prev" href="../settings/">
       
-        <link rel="next" href="tutorial/example/">
+      
+        <link rel="next" href="../../community/references/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>django-custom-storage</title>
+        <title>Storage classes - django-custom-storage</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +53,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -86,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quickstart" class="md-skip">
+        <a href="#storage-classes" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +104,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="django-custom-storage" class="md-header__button md-logo" aria-label="django-custom-storage" data-md-component="logo">
+    <a href="../.." title="django-custom-storage" class="md-header__button md-logo" aria-label="django-custom-storage" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -122,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Quickstart
+              Storage classes
             
           </span>
         </div>
@@ -240,7 +242,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="django-custom-storage" class="md-nav__button md-logo" aria-label="django-custom-storage" data-md-component="logo">
+    <a href="../.." title="django-custom-storage" class="md-nav__button md-logo" aria-label="django-custom-storage" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -267,6 +269,187 @@
       
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../example/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Customize
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Customize
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -286,7 +469,7 @@
   <span class="md-ellipsis">
     
   
-    Quickstart
+    Storage classes
   
 
     
@@ -297,14 +480,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="." class="md-nav__link md-nav__link--active">
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    Quickstart
+    Storage classes
   
 
     
@@ -330,55 +513,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#available-storage-classes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Available Storage Classes
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirements
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Setup
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Setup">
+    <nav class="md-nav" aria-label="Available Storage Classes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-add-to-installed_apps" class="md-nav__link">
+  <a href="#staticrootcacheds3storage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Add to INSTALLED_APPS
+        StaticRootCachedS3Storage
       
     </span>
   </a>
@@ -386,10 +536,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-configure-aws-s3-settings" class="md-nav__link">
+  <a href="#mediarootcacheds3storage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Configure AWS S3 Settings
+        MediaRootCachedS3Storage
       
     </span>
   </a>
@@ -397,10 +547,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-configure-storage-backends" class="md-nav__link">
+  <a href="#publicmedias3boto3storage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Configure Storage Backends
+        PublicMediaS3Boto3Storage
       
     </span>
   </a>
@@ -408,10 +558,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-configure-django-compressor-optional" class="md-nav__link">
+  <a href="#privatemedias3boto3storage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Configure django-compressor (Optional)
+        PrivateMediaS3Boto3Storage
       
     </span>
   </a>
@@ -424,10 +574,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#storage-classes" class="md-nav__link">
+  <a href="#comparison-table" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Storage Classes
+        Comparison Table
       
     </span>
   </a>
@@ -435,10 +585,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#custom-storage-classes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next Steps
+        Custom Storage Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#django-version-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Django Version Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling
       
     </span>
   </a>
@@ -449,183 +621,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Tutorials
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Tutorials
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="tutorial/example/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Example
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Customize
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Customize
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="tutorial/settings/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Settings
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="tutorial/storage-classes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Storage classes
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -700,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/references/" class="md-nav__link">
+      <a href="../../community/references/" class="md-nav__link">
         
   
   
@@ -728,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/contributing/" class="md-nav__link">
+      <a href="../../community/contributing/" class="md-nav__link">
         
   
   
@@ -756,7 +751,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/third-party-packages/" class="md-nav__link">
+      <a href="../../community/third-party-packages/" class="md-nav__link">
         
   
   
@@ -811,55 +806,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#available-storage-classes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Available Storage Classes
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirements
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Setup
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Setup">
+    <nav class="md-nav" aria-label="Available Storage Classes">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-add-to-installed_apps" class="md-nav__link">
+  <a href="#staticrootcacheds3storage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Add to INSTALLED_APPS
+        StaticRootCachedS3Storage
       
     </span>
   </a>
@@ -867,10 +829,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-configure-aws-s3-settings" class="md-nav__link">
+  <a href="#mediarootcacheds3storage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Configure AWS S3 Settings
+        MediaRootCachedS3Storage
       
     </span>
   </a>
@@ -878,10 +840,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-configure-storage-backends" class="md-nav__link">
+  <a href="#publicmedias3boto3storage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Configure Storage Backends
+        PublicMediaS3Boto3Storage
       
     </span>
   </a>
@@ -889,10 +851,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#4-configure-django-compressor-optional" class="md-nav__link">
+  <a href="#privatemedias3boto3storage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Configure django-compressor (Optional)
+        PrivateMediaS3Boto3Storage
       
     </span>
   </a>
@@ -905,10 +867,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#storage-classes" class="md-nav__link">
+  <a href="#comparison-table" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Storage Classes
+        Comparison Table
       
     </span>
   </a>
@@ -916,10 +878,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#custom-storage-classes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next Steps
+        Custom Storage Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#django-version-compatibility" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Django Version Compatibility
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Error Handling
       
     </span>
   </a>
@@ -946,101 +930,182 @@
   
 
 
-<h1 id="quickstart"><a class="toclink" href="#quickstart">Quickstart</a></h1>
-<p>Django Custom Storage provides custom storage backends for Django that integrate with AWS S3 and django-compressor. It offers S3 storage backends that cache files locally, making it ideal for production environments where you need both cloud storage and local caching.</p>
-<h2 id="features"><a class="toclink" href="#features">Features</a></h2>
-<ul>
-<li><strong>S3 Storage with Local Caching</strong>: Files are saved to both S3 and local storage</li>
-<li><strong>Static Files Support</strong>: Specialized storage for static files with compression</li>
-<li><strong>Media Files Support</strong>: Dedicated storage for media files</li>
-<li><strong>django-compressor Integration</strong>: Seamless integration with django-compressor</li>
-<li><strong>Django 3.2+ Support</strong>: Compatible with Django 3.2, 4.2, and 5.2</li>
-<li><strong>Flexible Configuration</strong>: Easy configuration through Django settings</li>
-</ul>
-<h2 id="requirements"><a class="toclink" href="#requirements">Requirements</a></h2>
-<ul>
-<li>Python 3.9 or higher</li>
-<li>Django 3.2 or higher</li>
-<li>django-storages (for S3 backend)</li>
-<li>django-compressor (for static file compression)</li>
-</ul>
-<h2 id="installation"><a class="toclink" href="#installation">Installation</a></h2>
-<p>Install django-custom-storage from PyPI:</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>django-custom-storage
-</code></pre></div>
-<h2 id="quick-setup"><a class="toclink" href="#quick-setup">Quick Setup</a></h2>
-<h3 id="1-add-to-installed_apps"><a class="toclink" href="#1-add-to-installed_apps">1. Add to INSTALLED_APPS</a></h3>
-<p>Add <code>compressor</code> and <code>custom_storage</code> to your <code>INSTALLED_APPS</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># ... other apps</span>
-    <span class="s2">&quot;compressor&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;custom_storage&quot;</span><span class="p">,</span>
-    <span class="c1"># ... other apps</span>
-<span class="p">]</span>
-</code></pre></div>
-<h3 id="2-configure-aws-s3-settings"><a class="toclink" href="#2-configure-aws-s3-settings">2. Configure AWS S3 Settings</a></h3>
-<p>Add your AWS S3 configuration to <code>settings.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># AWS S3 Configuration</span>
-<span class="n">AWS_STORAGE_BUCKET_PREFIX</span> <span class="o">=</span> <span class="s2">&quot;cdn&quot;</span>
-<span class="n">AWS_STORAGE_BUCKET_NAME</span> <span class="o">=</span> <span class="s2">&quot;your_bucket_name&quot;</span>
-<span class="n">AWS_STORAGE_BUCKET_TLD</span> <span class="o">=</span> <span class="s2">&quot;com&quot;</span>
-
-<span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s2">&quot;YOUR_AWS_ACCESS_KEY_ID&quot;</span>
-<span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s2">&quot;YOUR_AWS_SECRET_ACCESS_KEY&quot;</span>
-<span class="n">AWS_S3_CUSTOM_DOMAIN</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_PREFIX</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_NAME</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_TLD</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="p">)</span>
-
-<span class="c1"># File paths</span>
-<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="s2">&quot;/var/opt/your_project/mediaroot/&quot;</span>
-<span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="s2">&quot;/var/cache/your_project/staticroot/&quot;</span>
-<span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s2">&quot;/static/&quot;</span>
-</code></pre></div>
-<h3 id="3-configure-storage-backends"><a class="toclink" href="#3-configure-storage-backends">3. Configure Storage Backends</a></h3>
-<p>Configure the storage backends for static and media files:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># For Django 4.2+</span>
+<h1 id="storage-classes"><a class="toclink" href="#storage-classes">Storage Classes</a></h1>
+<p>django-custom-storage provides several storage classes that extend Django's storage backends to integrate with AWS S3 and provide local caching.</p>
+<h2 id="available-storage-classes"><a class="toclink" href="#available-storage-classes">Available Storage Classes</a></h2>
+<h3 id="staticrootcacheds3storage"><a class="toclink" href="#staticrootcacheds3storage">StaticRootCachedS3Storage</a></h3>
+<p>S3 storage backend that saves static files both locally and on S3. Uses <code>CompressorFileStorage</code> as the local storage backend by default.</p>
+<p><strong>Location</strong>: <code>custom_storage.storage.StaticRootCachedS3Storage</code></p>
+<p><strong>Default Configuration</strong>:
+- <code>location</code>: <code>AWS_S3_STATIC_LOCATION</code> (default: "static")
+- <code>base_url</code>: <code>AWS_S3_STATIC_URL</code> (default: <code>STATIC_URL</code>)
+- <code>local_storage</code>: <code>STORAGES["compressor"]["BACKEND"]</code> (default: <code>compressor.storage.CompressorFileStorage</code>)</p>
+<p><strong>Usage</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In settings.py (Django 4.2+)</span>
 <span class="n">STORAGES</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;BACKEND&quot;</span><span class="p">:</span> <span class="s2">&quot;custom_storage.storage.MediaRootCachedS3Storage&quot;</span><span class="p">,</span>
-    <span class="p">},</span>
     <span class="s2">&quot;staticfiles&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;BACKEND&quot;</span><span class="p">:</span> <span class="s2">&quot;custom_storage.storage.StaticRootCachedS3Storage&quot;</span><span class="p">,</span>
     <span class="p">},</span>
 <span class="p">}</span>
 
-<span class="c1"># For Django &lt; 4.2</span>
-<span class="n">DEFAULT_FILE_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;custom_storage.storage.MediaRootCachedS3Storage&quot;</span>
-<span class="n">STATICFILES_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;custom_storage.storage.StaticRootCachedS3Storage&quot;</span>
+<span class="c1"># In settings.py (Django &lt; 4.2)</span>
+<span class="n">STATICFILES_STORAGE</span> <span class="o">=</span> <span class="s1">&#39;custom_storage.storage.StaticRootCachedS3Storage&#39;</span>
 </code></pre></div>
-<h3 id="4-configure-django-compressor-optional"><a class="toclink" href="#4-configure-django-compressor-optional">4. Configure django-compressor (Optional)</a></h3>
-<p>If you want to use compression:</p>
-<div class="highlight"><pre><span></span><code><span class="n">COMPRESS_ENABLED</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">COMPRESS_OFFLINE</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">COMPRESS_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;custom_storage.storage.StaticRootCachedS3Storage&quot;</span>
-<span class="n">COMPRESS_ROOT</span> <span class="o">=</span> <span class="n">STATIC_ROOT</span>
+<p><strong>Custom Initialization</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">custom_storage.storage</span> <span class="kn">import</span> <span class="n">StaticRootCachedS3Storage</span>
 
-<span class="n">STATICFILES_FINDERS</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s2">&quot;django.contrib.staticfiles.finders.FileSystemFinder&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;django.contrib.staticfiles.finders.AppDirectoriesFinder&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;compressor.finders.CompressorFinder&quot;</span><span class="p">,</span>
+<span class="n">storage</span> <span class="o">=</span> <span class="n">StaticRootCachedS3Storage</span><span class="p">(</span>
+    <span class="n">location</span><span class="o">=</span><span class="s2">&quot;custom_static&quot;</span><span class="p">,</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://cdn.example.com/static/&quot;</span><span class="p">,</span>
+    <span class="n">local_storage</span><span class="o">=</span><span class="n">CustomLocalStorage</span><span class="p">(),</span>
 <span class="p">)</span>
 </code></pre></div>
-<p>That's it! Your Django project is now configured to use custom storage backends with S3 and local caching.</p>
-<h2 id="storage-classes"><a class="toclink" href="#storage-classes">Storage Classes</a></h2>
-<p>django-custom-storage provides several storage classes:</p>
+<p><strong>How It Works</strong>:</p>
+<ol>
+<li>When <code>save()</code> is called, the file is first saved to local storage</li>
+<li>Then the file is opened from local storage and uploaded to S3</li>
+<li>Both local and S3 copies are maintained</li>
+</ol>
+<p>This ensures that:
+- Files are available locally for django-compressor to process
+- Files are also stored on S3 for CDN delivery
+- If S3 upload fails, the local copy still exists</p>
+<h3 id="mediarootcacheds3storage"><a class="toclink" href="#mediarootcacheds3storage">MediaRootCachedS3Storage</a></h3>
+<p>S3 storage backend that saves media files both locally and on S3. Uses <code>FileSystemStorage</code> as the local storage backend by default.</p>
+<p><strong>Location</strong>: <code>custom_storage.storage.MediaRootCachedS3Storage</code></p>
+<p><strong>Default Configuration</strong>:
+- <code>location</code>: <code>AWS_S3_MEDIA_LOCATION</code> (default: "media")
+- <code>base_url</code>: <code>AWS_S3_MEDIA_URL</code> (default: <code>MEDIA_URL</code>)
+- <code>local_storage</code>: <code>STORAGES["local"]["BACKEND"]</code> (default: <code>django.core.files.storage.FileSystemStorage</code>)</p>
+<p><strong>Usage</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># In settings.py (Django 4.2+)</span>
+<span class="n">STORAGES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;BACKEND&quot;</span><span class="p">:</span> <span class="s2">&quot;custom_storage.storage.MediaRootCachedS3Storage&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="c1"># In settings.py (Django &lt; 4.2)</span>
+<span class="n">DEFAULT_FILE_STORAGE</span> <span class="o">=</span> <span class="s1">&#39;custom_storage.storage.MediaRootCachedS3Storage&#39;</span>
+</code></pre></div>
+<p><strong>Custom Initialization</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">custom_storage.storage</span> <span class="kn">import</span> <span class="n">MediaRootCachedS3Storage</span>
+
+<span class="n">storage</span> <span class="o">=</span> <span class="n">MediaRootCachedS3Storage</span><span class="p">(</span>
+    <span class="n">location</span><span class="o">=</span><span class="s2">&quot;custom_media&quot;</span><span class="p">,</span>
+    <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://cdn.example.com/media/&quot;</span><span class="p">,</span>
+    <span class="n">local_storage</span><span class="o">=</span><span class="n">CustomLocalStorage</span><span class="p">(),</span>
+<span class="p">)</span>
+</code></pre></div>
+<p><strong>Special Features</strong>:</p>
+<p>The <code>delete()</code> method automatically deletes optimized image variants (webp and avif) if they exist:</p>
+<div class="highlight"><pre><span></span><code><span class="n">storage</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;image.jpg&quot;</span><span class="p">)</span>  <span class="c1"># Also deletes &quot;image.jpg.webp&quot; and &quot;image.jpg.avif&quot; if they exist</span>
+</code></pre></div>
+<p><strong>How It Works</strong>:</p>
+<ol>
+<li>When <code>save()</code> is called, the file is first saved to local storage</li>
+<li>Then the file is opened from local storage and uploaded to S3</li>
+<li>Both local and S3 copies are maintained</li>
+</ol>
+<h3 id="publicmedias3boto3storage"><a class="toclink" href="#publicmedias3boto3storage">PublicMediaS3Boto3Storage</a></h3>
+<p>S3 storage backend for public media files. Files are stored with public-read ACL.</p>
+<p><strong>Location</strong>: <code>custom_storage.storage.PublicMediaS3Boto3Storage</code></p>
+<p><strong>Default Configuration</strong>:
+- <code>location</code>: "media"
+- <code>default_acl</code>: "public-read"
+- <code>file_overwrite</code>: <code>False</code></p>
+<p><strong>Usage</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">custom_storage.storage</span> <span class="kn">import</span> <span class="n">PublicMediaS3Boto3Storage</span>
+
+<span class="n">storage</span> <span class="o">=</span> <span class="n">PublicMediaS3Boto3Storage</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>Features</strong>:
+- Files are publicly accessible
+- Does not overwrite existing files
+- Suitable for public media files that don't need local caching</p>
+<h3 id="privatemedias3boto3storage"><a class="toclink" href="#privatemedias3boto3storage">PrivateMediaS3Boto3Storage</a></h3>
+<p>S3 storage backend for private media files. Files are stored with private ACL.</p>
+<p><strong>Location</strong>: <code>custom_storage.storage.PrivateMediaS3Boto3Storage</code></p>
+<p><strong>Default Configuration</strong>:
+- <code>location</code>: "private"
+- <code>default_acl</code>: "private"
+- <code>file_overwrite</code>: <code>False</code>
+- <code>custom_domain</code>: <code>False</code></p>
+<p><strong>Usage</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">custom_storage.storage</span> <span class="kn">import</span> <span class="n">PrivateMediaS3Boto3Storage</span>
+
+<span class="n">storage</span> <span class="o">=</span> <span class="n">PrivateMediaS3Boto3Storage</span><span class="p">()</span>
+</code></pre></div>
+<p><strong>Features</strong>:
+- Files are private and require authentication
+- Does not use custom domain (uses AWS S3 URLs)
+- Does not overwrite existing files
+- Suitable for sensitive media files</p>
+<h2 id="comparison-table"><a class="toclink" href="#comparison-table">Comparison Table</a></h2>
+<table>
+<thead>
+<tr>
+<th>Storage Class</th>
+<th>Local Cache</th>
+<th>S3 Storage</th>
+<th>Use Case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>StaticRootCachedS3Storage</code></td>
+<td>Yes (CompressorFileStorage)</td>
+<td>Yes</td>
+<td>Static files with compression</td>
+</tr>
+<tr>
+<td><code>MediaRootCachedS3Storage</code></td>
+<td>Yes (FileSystemStorage)</td>
+<td>Yes</td>
+<td>Media files with local backup</td>
+</tr>
+<tr>
+<td><code>PublicMediaS3Boto3Storage</code></td>
+<td>No</td>
+<td>Yes</td>
+<td>Public media files</td>
+</tr>
+<tr>
+<td><code>PrivateMediaS3Boto3Storage</code></td>
+<td>No</td>
+<td>Yes</td>
+<td>Private media files</td>
+</tr>
+</tbody>
+</table>
+<h2 id="custom-storage-classes"><a class="toclink" href="#custom-storage-classes">Custom Storage Classes</a></h2>
+<p>You can create custom storage classes by inheriting from the provided classes:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">custom_storage.storage</span> <span class="kn">import</span> <span class="n">MediaRootCachedS3Storage</span>
+
+<span class="k">class</span> <span class="nc">CustomMediaStorage</span><span class="p">(</span><span class="n">MediaRootCachedS3Storage</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Custom media storage with specific configuration&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># Custom initialization</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">location</span> <span class="o">=</span> <span class="s2">&quot;custom_media&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_acl</span> <span class="o">=</span> <span class="s2">&quot;public-read&quot;</span>
+</code></pre></div>
+<h2 id="django-version-compatibility"><a class="toclink" href="#django-version-compatibility">Django Version Compatibility</a></h2>
+<p>All storage classes are compatible with Django 3.2, 4.2, and 5.2. The storage classes automatically handle differences between Django versions:</p>
 <ul>
-<li><strong>StaticRootCachedS3Storage</strong>: For static files with local caching</li>
-<li><strong>MediaRootCachedS3Storage</strong>: For media files with local caching</li>
-<li><strong>PublicMediaS3Boto3Storage</strong>: Public media files on S3</li>
-<li><strong>PrivateMediaS3Boto3Storage</strong>: Private media files on S3</li>
+<li>Django 4.2+: Uses <code>STORAGES</code> dictionary</li>
+<li>Django &lt; 4.2: Uses <code>DEFAULT_FILE_STORAGE</code> and <code>STATICFILES_STORAGE</code></li>
+<li>Django 5.2+: Uses <code>import_string</code> instead of <code>get_storage_class</code></li>
 </ul>
-<p>See the <a href="../tutorial/storage-classes.md">Storage Classes documentation</a> for more details.</p>
-<h2 id="next-steps"><a class="toclink" href="#next-steps">Next Steps</a></h2>
+<h2 id="error-handling"><a class="toclink" href="#error-handling">Error Handling</a></h2>
+<p>All storage classes properly handle errors:</p>
 <ul>
-<li>Read the <a href="../tutorial/settings.md">Settings documentation</a> for detailed configuration options</li>
-<li>Check out the <a href="../tutorial/example.md">Example project</a> for a complete implementation</li>
-<li>See <a href="../community/references.md">References</a> for additional resources</li>
+<li>If local save fails, S3 upload is not attempted</li>
+<li>If S3 upload fails, the local copy is retained</li>
+<li>Errors are propagated up so they can be handled by your application</li>
 </ul>
+<p>For detailed error handling scenarios, see the <a href="../tutorial/error-handling.md">Error Handling documentation</a>.</p>
 
 
 
@@ -1061,7 +1126,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-06-14
+    2026-06-27
   </span>
 
     
@@ -1157,10 +1222,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.top", "content.code.annotate", "content.tabs.link", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "content.code.annotate", "content.tabs.link", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

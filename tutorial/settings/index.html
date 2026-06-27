@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://github.com/DLRSP/django-custom-storage/community/references/">
+        <link rel="canonical" href="https://github.com/DLRSP/django-custom-storage/tutorial/settings/">
       
       
-        <link rel="prev" href="../../tutorial/storage-classes/">
+        <link rel="prev" href="../example/">
       
       
-        <link rel="next" href="../contributing/">
+        <link rel="next" href="../storage-classes/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>References - django-custom-storage</title>
+        <title>Settings - django-custom-storage</title>
       
     
     
@@ -88,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#references" class="md-skip">
+        <a href="#settings-configuration" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              References
+              Settings
             
           </span>
         </div>
@@ -296,18 +296,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -328,7 +330,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -346,7 +348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorial/example/" class="md-nav__link">
+      <a href="../example/" class="md-nav__link">
         
   
   
@@ -371,18 +373,20 @@
                 
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -403,7 +407,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -418,10 +422,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../tutorial/settings/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -437,6 +468,231 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#recommended-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recommended Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#required-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Required Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-s3-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS S3 Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-backend-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Backend Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optional-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Optional Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-s3-custom-domain" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS S3 Custom Domain
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-s3-staticmedia-urls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS S3 Static/Media URLs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-s3-object-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS S3 Object Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-s3-acl-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS S3 ACL Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#django-compressor-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django-compressor Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-storage-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Storage Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force-local-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Force Local Storage
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environment-specific-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment-Specific Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment-Specific Settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#debug-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DEBUG Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Validation
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -449,7 +705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../tutorial/storage-classes/" class="md-nav__link">
+      <a href="../storage-classes/" class="md-nav__link">
         
   
   
@@ -489,20 +745,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -523,7 +777,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -538,37 +792,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    References
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../community/references/" class="md-nav__link">
         
   
   
@@ -584,421 +811,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#official-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Official Documentation
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Official Documentation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#django" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Django
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#django-storages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        django-storages
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#django-compressor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        django-compressor
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#aws-s3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWS S3
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-projects" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Related Projects
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Related Projects">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#dlrsp-organization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        DLRSP Organization
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#storage-backends" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Storage Backends
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#compression" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Compression
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tutorials-and-guides" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tutorials and Guides
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tutorials and Guides">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#django-storage" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Django Storage
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#aws-s3-integration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWS S3 Integration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#compression_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Compression
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-compatibility" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version Compatibility
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Version Compatibility">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#django-versions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Django Versions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python-versions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Python Versions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#blog-posts-and-articles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Blog Posts and Articles
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Blog Posts and Articles">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#storage-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Storage Patterns
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api-references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API References
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="API References">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#django-storage-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Django Storage API
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#django-storages-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        django-storages API
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Community
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Community">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GitHub
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#standards-and-specifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Standards and Specifications
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tools-and-utilities" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Tools and Utilities
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Tools and Utilities">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#development-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Development Tools
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#documentation-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation Tools
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Additional Resources
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Additional Resources">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#aws-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWS Resources
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#performance-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance Optimization
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1011,7 +823,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../contributing/" class="md-nav__link">
+      <a href="../../community/contributing/" class="md-nav__link">
         
   
   
@@ -1039,7 +851,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../third-party-packages/" class="md-nav__link">
+      <a href="../../community/third-party-packages/" class="md-nav__link">
         
   
   
@@ -1094,22 +906,33 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#official-documentation" class="md-nav__link">
+  <a href="#recommended-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Official Documentation
+        Recommended Setup
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Official Documentation">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#required-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Required Settings">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#django" class="md-nav__link">
+  <a href="#aws-s3-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Django
+        AWS S3 Configuration
       
     </span>
   </a>
@@ -1117,32 +940,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#django-storages" class="md-nav__link">
+  <a href="#storage-backend-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        django-storages
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#django-compressor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        django-compressor
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#aws-s3" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWS S3
+        Storage Backend Configuration
       
     </span>
   </a>
@@ -1155,22 +956,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#related-projects" class="md-nav__link">
+  <a href="#optional-settings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Related Projects
+        Optional Settings
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Related Projects">
+    <nav class="md-nav" aria-label="Optional Settings">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dlrsp-organization" class="md-nav__link">
+  <a href="#aws-s3-custom-domain" class="md-nav__link">
     <span class="md-ellipsis">
       
-        DLRSP Organization
+        AWS S3 Custom Domain
       
     </span>
   </a>
@@ -1178,10 +979,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#storage-backends" class="md-nav__link">
+  <a href="#aws-s3-staticmedia-urls" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Storage Backends
+        AWS S3 Static/Media URLs
       
     </span>
   </a>
@@ -1189,10 +990,54 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#compression" class="md-nav__link">
+  <a href="#aws-s3-object-parameters" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Compression
+        AWS S3 Object Parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aws-s3-acl-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS S3 ACL Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#django-compressor-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        django-compressor Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local-storage-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Local Storage Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force-local-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Force Local Storage
       
     </span>
   </a>
@@ -1205,22 +1050,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tutorials-and-guides" class="md-nav__link">
+  <a href="#environment-specific-settings" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tutorials and Guides
+        Environment-Specific Settings
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Tutorials and Guides">
+    <nav class="md-nav" aria-label="Environment-Specific Settings">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#django-storage" class="md-nav__link">
+  <a href="#debug-mode" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Django Storage
+        DEBUG Mode
       
     </span>
   </a>
@@ -1228,21 +1073,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#aws-s3-integration" class="md-nav__link">
+  <a href="#windows-configuration" class="md-nav__link">
     <span class="md-ellipsis">
       
-        AWS S3 Integration
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#compression_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Compression
+        Windows Configuration
       
     </span>
   </a>
@@ -1255,155 +1089,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-compatibility" class="md-nav__link">
+  <a href="#complete-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version Compatibility
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Version Compatibility">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#django-versions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Django Versions
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python-versions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Python Versions
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#blog-posts-and-articles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Blog Posts and Articles
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Blog Posts and Articles">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#storage-patterns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Storage Patterns
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api-references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        API References
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="API References">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#django-storage-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Django Storage API
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#django-storages-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        django-storages API
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#community" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Community
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Community">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        GitHub
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#support" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Support
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#standards-and-specifications" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Standards and Specifications
+        Complete Example
       
     </span>
   </a>
@@ -1411,80 +1100,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tools-and-utilities" class="md-nav__link">
+  <a href="#validation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Tools and Utilities
+        Validation
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Tools and Utilities">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#development-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Development Tools
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#documentation-tools" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentation Tools
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#additional-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Additional Resources
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Additional Resources">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#aws-resources" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        AWS Resources
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#performance-optimization" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Performance Optimization
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1508,144 +1130,223 @@
   
 
 
-<h1 id="references"><a class="toclink" href="#references">References</a></h1>
-<p>Useful references and resources for django-custom-storage.</p>
-<h2 id="official-documentation"><a class="toclink" href="#official-documentation">Official Documentation</a></h2>
-<h3 id="django"><a class="toclink" href="#django">Django</a></h3>
+<h1 id="settings-configuration"><a class="toclink" href="#settings-configuration">Settings Configuration</a></h1>
+<p>This document describes all the settings available in django-custom-storage.</p>
+<h2 id="recommended-setup"><a class="toclink" href="#recommended-setup">Recommended Setup</a></h2>
+<p>The package can derive the storage, compression and AWS settings for you from a small
+<code>APP_CONFIG</code> block plus its built-in defaults. Call <code>apply_storage_defaults</code> at the end of
+<code>settings.py</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">APP_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;custom_storage&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;BUCKET_NAME&quot;</span><span class="p">:</span> <span class="s2">&quot;your_bucket_name&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;CUSTOM_DOMAIN&quot;</span><span class="p">:</span> <span class="s2">&quot;cdn.your_bucket_name.com&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="kn">from</span> <span class="nn">custom_storage.conf</span> <span class="kn">import</span> <span class="n">apply_storage_defaults</span>
+
+<span class="n">apply_storage_defaults</span><span class="p">(</span><span class="nb">globals</span><span class="p">())</span>
+</code></pre></div>
+<p>Any top-level setting you define explicitly takes precedence over the derived value, so the
+sections below document both the keys you can override and the values the package fills in.</p>
+<h2 id="required-settings"><a class="toclink" href="#required-settings">Required Settings</a></h2>
+<h3 id="aws-s3-configuration"><a class="toclink" href="#aws-s3-configuration">AWS S3 Configuration</a></h3>
+<p>These settings are required to use S3 storage:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># AWS S3 Bucket Configuration</span>
+<span class="n">AWS_STORAGE_BUCKET_PREFIX</span> <span class="o">=</span> <span class="s2">&quot;cdn&quot;</span>  <span class="c1"># Prefix for your bucket subdomain</span>
+<span class="n">AWS_STORAGE_BUCKET_NAME</span> <span class="o">=</span> <span class="s2">&quot;your_bucket_name&quot;</span>  <span class="c1"># Your S3 bucket name</span>
+<span class="n">AWS_STORAGE_BUCKET_TLD</span> <span class="o">=</span> <span class="s2">&quot;com&quot;</span>  <span class="c1"># Top-level domain</span>
+
+<span class="c1"># AWS Credentials</span>
+<span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s2">&quot;YOUR_AWS_ACCESS_KEY_ID&quot;</span>
+<span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s2">&quot;YOUR_AWS_SECRET_ACCESS_KEY&quot;</span>
+</code></pre></div>
+<p>The custom domain will be automatically constructed as:
+<div class="highlight"><pre><span></span><code>{AWS_STORAGE_BUCKET_PREFIX}.{AWS_STORAGE_BUCKET_NAME}.{AWS_STORAGE_BUCKET_TLD}
+</code></pre></div></p>
+<p>Example: <code>cdn.your_bucket_name.com</code></p>
+<h3 id="storage-backend-configuration"><a class="toclink" href="#storage-backend-configuration">Storage Backend Configuration</a></h3>
+<p><code>apply_storage_defaults</code> populates <code>STORAGES</code> for you. Define it explicitly only if you
+need to override an alias; the package fills in any alias you leave out:</p>
+<div class="highlight"><pre><span></span><code><span class="n">STORAGES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;BACKEND&quot;</span><span class="p">:</span> <span class="s2">&quot;custom_storage.storage.MediaRootCachedS3Storage&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;staticfiles&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;BACKEND&quot;</span><span class="p">:</span> <span class="s2">&quot;custom_storage.storage.StaticRootCachedS3Storage&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;compressor&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;BACKEND&quot;</span><span class="p">:</span> <span class="s2">&quot;compressor.storage.CompressorFileStorage&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;local&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;BACKEND&quot;</span><span class="p">:</span> <span class="s2">&quot;django.core.files.storage.FileSystemStorage&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;private&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;BACKEND&quot;</span><span class="p">:</span> <span class="s2">&quot;custom_storage.storage.PrivateMediaS3Boto3Storage&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="optional-settings"><a class="toclink" href="#optional-settings">Optional Settings</a></h2>
+<h3 id="aws-s3-custom-domain"><a class="toclink" href="#aws-s3-custom-domain">AWS S3 Custom Domain</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">AWS_S3_CUSTOM_DOMAIN</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_PREFIX</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_NAME</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_TLD</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>If not set, it will be automatically constructed from the bucket configuration.</p>
+<h3 id="aws-s3-staticmedia-urls"><a class="toclink" href="#aws-s3-staticmedia-urls">AWS S3 Static/Media URLs</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">AWS_S3_STATIC_URL</span> <span class="o">=</span> <span class="s2">&quot;https://cdn.example.com/static/&quot;</span>  <span class="c1"># Must end with /</span>
+<span class="n">AWS_S3_STATIC_LOCATION</span> <span class="o">=</span> <span class="s2">&quot;static&quot;</span>  <span class="c1"># S3 prefix for static files</span>
+<span class="n">AWS_S3_MEDIA_URL</span> <span class="o">=</span> <span class="s2">&quot;https://cdn.example.com/media/&quot;</span>  <span class="c1"># Must end with /</span>
+<span class="n">AWS_S3_MEDIA_LOCATION</span> <span class="o">=</span> <span class="s2">&quot;media&quot;</span>  <span class="c1"># S3 prefix for media files</span>
+</code></pre></div>
+<p>If not set, defaults to <code>STATIC_URL</code> and <code>MEDIA_URL</code> respectively.</p>
+<h3 id="aws-s3-object-parameters"><a class="toclink" href="#aws-s3-object-parameters">AWS S3 Object Parameters</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">AWS_S3_OBJECT_PARAMETERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Expires&quot;</span><span class="p">:</span> <span class="s2">&quot;Thu, 31 Dec 2025 20:00:00 GMT&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;CacheControl&quot;</span><span class="p">:</span> <span class="s2">&quot;max-age=94608000&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>These parameters are applied to all uploaded files.</p>
+<h3 id="aws-s3-acl-settings"><a class="toclink" href="#aws-s3-acl-settings">AWS S3 ACL Settings</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">AWS_DEFAULT_ACL</span> <span class="o">=</span> <span class="s2">&quot;public-read&quot;</span>  <span class="c1"># Default ACL for files</span>
+<span class="n">AWS_QUERYSTRING_AUTH</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Disable query string authentication</span>
+<span class="n">AWS_FILE_EXPIRE</span> <span class="o">=</span> <span class="mi">61</span>  <span class="c1"># Days until files expire (for cache headers)</span>
+<span class="n">AWS_PRELOAD_METADATA</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Preload metadata for faster access</span>
+<span class="n">AWS_S3_FILE_OVERWRITE</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Don&#39;t overwrite existing files</span>
+</code></pre></div>
+<h3 id="django-compressor-settings"><a class="toclink" href="#django-compressor-settings">django-compressor Settings</a></h3>
+<div class="highlight"><pre><span></span><code><span class="n">COMPRESS_ENABLED</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Enable compression</span>
+<span class="n">COMPRESS_OFFLINE</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Use offline compression</span>
+<span class="n">COMPRESS_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;custom_storage.storage.StaticRootCachedS3Storage&quot;</span>
+<span class="n">COMPRESS_ROOT</span> <span class="o">=</span> <span class="n">STATIC_ROOT</span>  <span class="c1"># Root directory for compressed files</span>
+<span class="n">COMPRESS_OUTPUT_DIR</span> <span class="o">=</span> <span class="s2">&quot;compressed_static&quot;</span>  <span class="c1"># Output directory for compressed files</span>
+
+<span class="n">STATICFILES_FINDERS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;django.contrib.staticfiles.finders.FileSystemFinder&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;django.contrib.staticfiles.finders.AppDirectoriesFinder&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;compressor.finders.CompressorFinder&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">COMPRESS_CSS_FILTERS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;compressor.filters.css_default.CssAbsoluteFilter&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;compressor.filters.cssmin.CSSMinFilter&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">COMPRESS_JS_FILTERS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;compressor.filters.jsmin.JSMinFilter&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">COMPRESS_CSS_HASHING_METHOD</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Options: None, &#39;content&#39;, &#39;mtime&#39;</span>
+</code></pre></div>
+<h3 id="local-storage-settings"><a class="toclink" href="#local-storage-settings">Local Storage Settings</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># File system paths</span>
+<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="s2">&quot;/var/opt/your_project/mediaroot/&quot;</span>
+<span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="s2">&quot;/var/cache/your_project/staticroot/&quot;</span>
+<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s2">&quot;/media/&quot;</span>
+<span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s2">&quot;/static/&quot;</span>
+</code></pre></div>
+<h3 id="force-local-storage"><a class="toclink" href="#force-local-storage">Force Local Storage</a></h3>
+<p>To force local storage (useful for development):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Option 1: Environment variable</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">FORCE_LOCAL_STORAGE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;FORCE_LOCAL_STORAGE&quot;</span><span class="p">,</span> <span class="s2">&quot;false&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span>
+
+<span class="c1"># Option 2: Command line argument (deprecated, use environment variable instead)</span>
+<span class="c1"># if &quot;--force-local-storage&quot; in sys.argv:</span>
+<span class="c1">#     FORCE_LOCAL_STORAGE = True</span>
+</code></pre></div>
+<p>When <code>FORCE_LOCAL_STORAGE</code> is <code>True</code>, the storage backends will use local file system storage instead of S3.</p>
+<h2 id="environment-specific-settings"><a class="toclink" href="#environment-specific-settings">Environment-Specific Settings</a></h2>
+<h3 id="debug-mode"><a class="toclink" href="#debug-mode">DEBUG Mode</a></h3>
+<p>In DEBUG mode, some settings are automatically adjusted:</p>
 <ul>
-<li><a href="https://docs.djangoproject.com/en/stable/topics/files/">Django Storage Documentation</a></li>
-<li><a href="https://docs.djangoproject.com/en/stable/ref/files/storage/">Django File Storage API</a></li>
-<li><a href="https://docs.djangoproject.com/en/stable/howto/static-files/">Django Static Files</a></li>
-<li><a href="https://docs.djangoproject.com/en/stable/ref/settings/#storages">Django STORAGES Setting (Django 4.2+)</a></li>
+<li><code>COMPRESS_ENABLED</code> is set to <code>False</code></li>
+<li><code>COMPRESS_OFFLINE</code> is set to <code>False</code></li>
+<li><code>STATIC_URL</code> is set to <code>/static/</code></li>
+<li>Local storage finders are used instead of compressor finders</li>
 </ul>
-<h3 id="django-storages"><a class="toclink" href="#django-storages">django-storages</a></h3>
+<h3 id="windows-configuration"><a class="toclink" href="#windows-configuration">Windows Configuration</a></h3>
+<p>On Windows, if <code>DEBUG=True</code> and <code>os.name == "nt"</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">WORK_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">settings</span><span class="o">.</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s2">&quot;work&quot;</span><span class="p">)</span>
+<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">WORK_DIR</span><span class="p">,</span> <span class="s2">&quot;mediaroot&quot;</span><span class="p">)</span>
+<span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">WORK_DIR</span><span class="p">,</span> <span class="s2">&quot;staticroot&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="complete-example"><a class="toclink" href="#complete-example">Complete Example</a></h2>
+<p>Here's a complete settings configuration example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span>
+
+<span class="c1"># ... other Django settings ...</span>
+
+<span class="c1"># AWS S3 Configuration</span>
+<span class="n">AWS_STORAGE_BUCKET_PREFIX</span> <span class="o">=</span> <span class="s2">&quot;cdn&quot;</span>
+<span class="n">AWS_STORAGE_BUCKET_NAME</span> <span class="o">=</span> <span class="s2">&quot;myproject&quot;</span>
+<span class="n">AWS_STORAGE_BUCKET_TLD</span> <span class="o">=</span> <span class="s2">&quot;com&quot;</span>
+<span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;AWS_ACCESS_KEY_ID&quot;</span><span class="p">)</span>
+<span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;AWS_SECRET_ACCESS_KEY&quot;</span><span class="p">)</span>
+
+<span class="c1"># File paths</span>
+<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">BASE_DIR</span> <span class="o">/</span> <span class="s2">&quot;media&quot;</span>
+<span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="n">BASE_DIR</span> <span class="o">/</span> <span class="s2">&quot;staticfiles&quot;</span>
+<span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s2">&quot;/media/&quot;</span>
+<span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s2">&quot;/static/&quot;</span>
+
+<span class="c1"># Force local storage in development</span>
+<span class="n">FORCE_LOCAL_STORAGE</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&quot;FORCE_LOCAL_STORAGE&quot;</span><span class="p">,</span> <span class="s2">&quot;false&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span>
+
+<span class="c1"># Storage configuration</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">FORCE_LOCAL_STORAGE</span><span class="p">:</span>
+    <span class="n">STORAGES</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;BACKEND&quot;</span><span class="p">:</span> <span class="s2">&quot;custom_storage.storage.MediaRootCachedS3Storage&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;staticfiles&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;BACKEND&quot;</span><span class="p">:</span> <span class="s2">&quot;custom_storage.storage.StaticRootCachedS3Storage&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="n">AWS_S3_CUSTOM_DOMAIN</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_PREFIX</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_NAME</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_TLD</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="n">STATIC_URL</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">AWS_S3_CUSTOM_DOMAIN</span><span class="si">}</span><span class="s2">/static/&quot;</span>
+    <span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">AWS_S3_CUSTOM_DOMAIN</span><span class="si">}</span><span class="s2">/media/&quot;</span>
+
+    <span class="n">AWS_DEFAULT_ACL</span> <span class="o">=</span> <span class="s2">&quot;public-read&quot;</span>
+    <span class="n">AWS_QUERYSTRING_AUTH</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">AWS_FILE_EXPIRE</span> <span class="o">=</span> <span class="mi">61</span>
+    <span class="n">AWS_PRELOAD_METADATA</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">AWS_S3_FILE_OVERWRITE</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">STORAGES</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;BACKEND&quot;</span><span class="p">:</span> <span class="s2">&quot;django.core.files.storage.FileSystemStorage&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;staticfiles&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;BACKEND&quot;</span><span class="p">:</span> <span class="s2">&quot;django.contrib.staticfiles.storage.StaticFilesStorage&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+<span class="c1"># Compression settings</span>
+<span class="n">COMPRESS_ENABLED</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">COMPRESS_OFFLINE</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">COMPRESS_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;custom_storage.storage.StaticRootCachedS3Storage&quot;</span>
+<span class="n">COMPRESS_ROOT</span> <span class="o">=</span> <span class="n">STATIC_ROOT</span>
+<span class="n">COMPRESS_OUTPUT_DIR</span> <span class="o">=</span> <span class="s2">&quot;compressed_static&quot;</span>
+
+<span class="n">STATICFILES_FINDERS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">&quot;django.contrib.staticfiles.finders.FileSystemFinder&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;django.contrib.staticfiles.finders.AppDirectoriesFinder&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;compressor.finders.CompressorFinder&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</code></pre></div>
+<h2 id="validation"><a class="toclink" href="#validation">Validation</a></h2>
+<p>The following settings are validated at startup:</p>
 <ul>
-<li><a href="https://django-storages.readthedocs.io/">django-storages Documentation</a></li>
-<li><a href="https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html">S3 Backend</a></li>
-<li><a href="https://github.com/jschneier/django-storages">django-storages GitHub</a></li>
+<li><code>AWS_S3_STATIC_URL</code> must end with <code>/</code></li>
+<li><code>AWS_S3_MEDIA_URL</code> must end with <code>/</code></li>
 </ul>
-<h3 id="django-compressor"><a class="toclink" href="#django-compressor">django-compressor</a></h3>
-<ul>
-<li><a href="https://django-compressor.readthedocs.io/">django-compressor Documentation</a></li>
-<li><a href="https://github.com/django-compressor/django-compressor">django-compressor GitHub</a></li>
-</ul>
-<h3 id="aws-s3"><a class="toclink" href="#aws-s3">AWS S3</a></h3>
-<ul>
-<li><a href="https://docs.aws.amazon.com/s3/">AWS S3 Documentation</a></li>
-<li><a href="https://boto3.amazonaws.com/v1/documentation/api/latest/index.html">AWS S3 Python SDK (boto3)</a></li>
-<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html">AWS S3 Best Practices</a></li>
-</ul>
-<h2 id="related-projects"><a class="toclink" href="#related-projects">Related Projects</a></h2>
-<h3 id="dlrsp-organization"><a class="toclink" href="#dlrsp-organization">DLRSP Organization</a></h3>
-<ul>
-<li><a href="https://github.com/DLRSP/django-errors">django-errors</a> - Django application for handling server errors</li>
-<li><a href="https://github.com/DLRSP/example">Example Project</a> - Example Django projects</li>
-</ul>
-<h3 id="storage-backends"><a class="toclink" href="#storage-backends">Storage Backends</a></h3>
-<ul>
-<li><a href="https://github.com/jschneier/django-storages">django-storages</a> - Collection of custom storage backends for Django</li>
-<li><a href="https://github.com/etianen/django-s3-storage">django-s3-storage</a> - Django S3 file storage backend</li>
-</ul>
-<h3 id="compression"><a class="toclink" href="#compression">Compression</a></h3>
-<ul>
-<li><a href="https://github.com/django-compressor/django-compressor">django-compressor</a> - Compresses linked and inline JavaScript or CSS into a single cached file</li>
-<li><a href="https://github.com/jazzband/django-pipeline">django-pipeline</a> - Asset packaging library for Django</li>
-</ul>
-<h2 id="tutorials-and-guides"><a class="toclink" href="#tutorials-and-guides">Tutorials and Guides</a></h2>
-<h3 id="django-storage"><a class="toclink" href="#django-storage">Django Storage</a></h3>
-<ul>
-<li><a href="https://docs.djangoproject.com/en/stable/topics/http/file-uploads/">Django File Upload Tutorial</a></li>
-<li><a href="https://docs.djangoproject.com/en/stable/howto/custom-file-storage/">Custom Storage Backends</a></li>
-</ul>
-<h3 id="aws-s3-integration"><a class="toclink" href="#aws-s3-integration">AWS S3 Integration</a></h3>
-<ul>
-<li><a href="https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/">Django S3 Storage Guide</a></li>
-<li><a href="https://realpython.com/storing-django-static-and-media-files-on-amazon-s3/">Setting up S3 with Django</a></li>
-</ul>
-<h3 id="compression_1"><a class="toclink" href="#compression_1">Compression</a></h3>
-<ul>
-<li><a href="https://django-compressor.readthedocs.io/en/latest/usage/">django-compressor Best Practices</a></li>
-</ul>
-<h2 id="version-compatibility"><a class="toclink" href="#version-compatibility">Version Compatibility</a></h2>
-<h3 id="django-versions"><a class="toclink" href="#django-versions">Django Versions</a></h3>
-<ul>
-<li>Django 3.2: <a href="https://docs.djangoproject.com/en/3.2/releases/3.2/">Release Notes</a></li>
-<li>Django 4.2: <a href="https://docs.djangoproject.com/en/4.2/releases/4.2/">Release Notes</a></li>
-<li>Django 5.2: <a href="https://docs.djangoproject.com/en/5.2/releases/5.2/">Release Notes</a></li>
-</ul>
-<h3 id="python-versions"><a class="toclink" href="#python-versions">Python Versions</a></h3>
-<ul>
-<li>Python 3.9: <a href="https://www.python.org/downloads/release/python-390/">Release Notes</a></li>
-<li>Python 3.10: <a href="https://www.python.org/downloads/release/python-3100/">Release Notes</a></li>
-<li>Python 3.11: <a href="https://www.python.org/downloads/release/python-3110/">Release Notes</a></li>
-</ul>
-<h2 id="blog-posts-and-articles"><a class="toclink" href="#blog-posts-and-articles">Blog Posts and Articles</a></h2>
-<h3 id="storage-patterns"><a class="toclink" href="#storage-patterns">Storage Patterns</a></h3>
-<ul>
-<li><a href="https://overtag.dk/v2/blog/a-settings-pattern-for-reusable-django-apps/">Django Storage Pattern for Reusable Apps</a></li>
-<li><a href="https://www.mslinn.com/django/1300-django-aws-control.html">Django AWS Control</a></li>
-</ul>
-<h2 id="api-references"><a class="toclink" href="#api-references">API References</a></h2>
-<h3 id="django-storage-api"><a class="toclink" href="#django-storage-api">Django Storage API</a></h3>
-<ul>
-<li><a href="https://docs.djangoproject.com/en/stable/ref/models/fields/#filefield">FileField Storage</a></li>
-<li><a href="https://docs.djangoproject.com/en/stable/ref/files/storage/#django.core.files.storage.Storage">Storage Class</a></li>
-<li><a href="https://docs.djangoproject.com/en/stable/ref/files/storage/#django.core.files.storage.get_storage_class">get_storage_class (deprecated in Django 5.2)</a></li>
-<li><a href="https://docs.djangoproject.com/en/stable/ref/utils/#django.utils.module_loading.import_string">import_string (Django 5.2+)</a></li>
-</ul>
-<h3 id="django-storages-api"><a class="toclink" href="#django-storages-api">django-storages API</a></h3>
-<ul>
-<li><a href="https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#storages.backends.s3.S3Storage">S3Storage</a></li>
-<li><a href="https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html#storages.backends.s3boto3.S3Boto3Storage">S3Boto3Storage</a></li>
-</ul>
-<h2 id="community"><a class="toclink" href="#community">Community</a></h2>
-<h3 id="github"><a class="toclink" href="#github">GitHub</a></h3>
-<ul>
-<li><a href="https://github.com/DLRSP/django-custom-storage">django-custom-storage Repository</a></li>
-<li><a href="https://github.com/DLRSP/django-custom-storage/issues">Issues</a></li>
-<li><a href="https://github.com/DLRSP/django-custom-storage/pulls">Pull Requests</a></li>
-<li><a href="https://github.com/DLRSP/django-custom-storage/discussions">Discussions</a></li>
-</ul>
-<h3 id="support"><a class="toclink" href="#support">Support</a></h3>
-<ul>
-<li><a href="https://github.com/DLRSP/django-custom-storage/issues">GitHub Issues</a> - For bug reports and feature requests</li>
-<li><a href="https://dlrsp.github.io/django-custom-storage/">Documentation</a> - Full documentation</li>
-</ul>
-<h2 id="standards-and-specifications"><a class="toclink" href="#standards-and-specifications">Standards and Specifications</a></h2>
-<ul>
-<li><a href="https://peps.python.org/pep-0008/">PEP 8 - Style Guide for Python Code</a></li>
-<li><a href="https://peps.python.org/pep-0484/">PEP 484 - Type Hints</a></li>
-<li><a href="https://docs.djangoproject.com/en/stable/internals/contributing/writing-code/coding-style/">Django Coding Style</a></li>
-</ul>
-<h2 id="tools-and-utilities"><a class="toclink" href="#tools-and-utilities">Tools and Utilities</a></h2>
-<h3 id="development-tools"><a class="toclink" href="#development-tools">Development Tools</a></h3>
-<ul>
-<li><a href="https://tox.readthedocs.io/">tox</a> - Testing automation tool</li>
-<li><a href="https://docs.pytest.org/">pytest</a> - Testing framework</li>
-<li><a href="https://pytest-django.readthedocs.io/">pytest-django</a> - Django plugin for pytest</li>
-<li><a href="https://black.readthedocs.io/">black</a> - Code formatter</li>
-<li><a href="https://pycqa.github.io/isort/">isort</a> - Import sorter</li>
-<li><a href="https://flake8.pycqa.org/">flake8</a> - Linter</li>
-<li><a href="https://mypy.readthedocs.io/">mypy</a> - Static type checker</li>
-<li><a href="https://coverage.readthedocs.io/">coverage</a> - Code coverage tool</li>
-</ul>
-<h3 id="documentation-tools"><a class="toclink" href="#documentation-tools">Documentation Tools</a></h3>
-<ul>
-<li><a href="https://www.mkdocs.org/">MkDocs</a> - Documentation generator</li>
-<li><a href="https://squidfunk.github.io/mkdocs-material/">Material for MkDocs</a> - MkDocs theme</li>
-</ul>
-<h2 id="additional-resources"><a class="toclink" href="#additional-resources">Additional Resources</a></h2>
-<h3 id="aws-resources"><a class="toclink" href="#aws-resources">AWS Resources</a></h3>
-<ul>
-<li><a href="https://aws.amazon.com/free/">AWS Free Tier</a></li>
-<li><a href="https://aws.amazon.com/s3/pricing/">AWS S3 Pricing</a></li>
-<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html">AWS S3 Security Best Practices</a></li>
-</ul>
-<h3 id="performance-optimization"><a class="toclink" href="#performance-optimization">Performance Optimization</a></h3>
-<ul>
-<li><a href="https://docs.djangoproject.com/en/stable/topics/performance/">Django Performance Optimization</a></li>
-<li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html">CDN Best Practices</a></li>
-</ul>
+<p>If these validations fail, an <code>ImproperlyConfigured</code> exception will be raised.</p>
 
 
 
@@ -1666,7 +1367,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-06-14
+    2026-06-27
   </span>
 
     

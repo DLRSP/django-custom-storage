@@ -10,29 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://github.com/DLRSP/django-custom-storage/">
+        <link rel="canonical" href="https://github.com/DLRSP/django-custom-storage/community/contributing/">
       
       
+        <link rel="prev" href="../references/">
       
-        <link rel="next" href="tutorial/example/">
+      
+        <link rel="next" href="../third-party-packages/">
       
       
         
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>django-custom-storage</title>
+        <title>Contributing - django-custom-storage</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,7 +53,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -86,7 +88,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#quickstart" class="md-skip">
+        <a href="#contributing" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +104,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="django-custom-storage" class="md-header__button md-logo" aria-label="django-custom-storage" data-md-component="logo">
+    <a href="../.." title="django-custom-storage" class="md-header__button md-logo" aria-label="django-custom-storage" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -122,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Quickstart
+              Contributing
             
           </span>
         </div>
@@ -240,7 +242,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="django-custom-storage" class="md-nav__button md-logo" aria-label="django-custom-storage" data-md-component="logo">
+    <a href="../.." title="django-custom-storage" class="md-nav__button md-logo" aria-label="django-custom-storage" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -267,37 +269,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Quickstart
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         
   
   
@@ -313,142 +288,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Features
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Requirements
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Setup
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Setup">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-add-to-installed_apps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Add to INSTALLED_APPS
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-configure-aws-s3-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Configure AWS S3 Settings
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-configure-storage-backends" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Configure Storage Backends
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-configure-django-compressor-optional" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Configure django-compressor (Optional)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#storage-classes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Storage Classes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Next Steps
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -507,7 +346,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial/example/" class="md-nav__link">
+      <a href="../../tutorial/example/" class="md-nav__link">
         
   
   
@@ -582,7 +421,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial/settings/" class="md-nav__link">
+      <a href="../../tutorial/settings/" class="md-nav__link">
         
   
   
@@ -610,7 +449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="tutorial/storage-classes/" class="md-nav__link">
+      <a href="../../tutorial/storage-classes/" class="md-nav__link">
         
   
   
@@ -650,18 +489,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -682,7 +523,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             
@@ -700,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/references/" class="md-nav__link">
+      <a href="../references/" class="md-nav__link">
         
   
   
@@ -725,10 +566,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="community/contributing/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -744,6 +612,225 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#code-of-conduct" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code of Conduct
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Started
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#development-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Tests
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-quality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Quality
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commit Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-request-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pull Request Guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Style
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-bugs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting Bugs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#suggesting-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suggesting Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Process
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -756,7 +843,7 @@
   
   
     <li class="md-nav__item">
-      <a href="community/third-party-packages/" class="md-nav__link">
+      <a href="../third-party-packages/" class="md-nav__link">
         
   
   
@@ -811,10 +898,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features" class="md-nav__link">
+  <a href="#code-of-conduct" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features
+        Code of Conduct
       
     </span>
   </a>
@@ -822,44 +909,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
+  <a href="#getting-started" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requirements
+        Getting Started
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Installation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quick-setup" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Setup
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Setup">
+    <nav class="md-nav" aria-label="Getting Started">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#1-add-to-installed_apps" class="md-nav__link">
+  <a href="#development-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Add to INSTALLED_APPS
+        Development Setup
       
     </span>
   </a>
@@ -867,10 +932,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#2-configure-aws-s3-settings" class="md-nav__link">
+  <a href="#running-tests" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Configure AWS S3 Settings
+        Running Tests
       
     </span>
   </a>
@@ -878,21 +943,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#3-configure-storage-backends" class="md-nav__link">
+  <a href="#code-quality" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Configure Storage Backends
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-configure-django-compressor-optional" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Configure django-compressor (Optional)
+        Code Quality
       
     </span>
   </a>
@@ -905,10 +959,93 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#storage-classes" class="md-nav__link">
+  <a href="#making-changes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Storage Classes
+        Making Changes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Making Changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commit Messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-request-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pull Request Guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testing-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Testing Guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-guidelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Guidelines
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Style
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-bugs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting Bugs
       
     </span>
   </a>
@@ -916,10 +1053,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#next-steps" class="md-nav__link">
+  <a href="#suggesting-features" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next Steps
+        Suggesting Features
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Release Process
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#questions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Questions?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        License
       
     </span>
   </a>
@@ -946,101 +1116,178 @@
   
 
 
-<h1 id="quickstart"><a class="toclink" href="#quickstart">Quickstart</a></h1>
-<p>Django Custom Storage provides custom storage backends for Django that integrate with AWS S3 and django-compressor. It offers S3 storage backends that cache files locally, making it ideal for production environments where you need both cloud storage and local caching.</p>
-<h2 id="features"><a class="toclink" href="#features">Features</a></h2>
+<h1 id="contributing"><a class="toclink" href="#contributing">Contributing</a></h1>
+<p>Thank you for your interest in contributing to django-custom-storage! This document provides guidelines and instructions for contributing.</p>
+<h2 id="code-of-conduct"><a class="toclink" href="#code-of-conduct">Code of Conduct</a></h2>
+<p>This project adheres to the Python Software Foundation's Code of Conduct. By participating, you are expected to uphold this code.</p>
+<h2 id="getting-started"><a class="toclink" href="#getting-started">Getting Started</a></h2>
+<h3 id="development-setup"><a class="toclink" href="#development-setup">Development Setup</a></h3>
+<ol>
+<li>Fork the repository on GitHub</li>
+<li>
+<p>Clone your fork:
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/YOUR_USERNAME/django-custom-storage.git
+<span class="nb">cd</span><span class="w"> </span>django-custom-storage
+</code></pre></div></p>
+</li>
+<li>
+<p>Create a virtual environment:
+   <div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate<span class="w">  </span><span class="c1"># On Windows: venv\Scripts\activate</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Install development dependencies:
+   <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[testing,linting]&quot;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Install pre-commit hooks:
+   <div class="highlight"><pre><span></span><code>pre-commit<span class="w"> </span>install
+</code></pre></div></p>
+</li>
+</ol>
+<h3 id="running-tests"><a class="toclink" href="#running-tests">Running Tests</a></h3>
+<p>Run the test suite:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>runtests.py
+</code></pre></div>
+<p>Run tests for specific Django/Python versions using tox:</p>
+<div class="highlight"><pre><span></span><code>tox
+</code></pre></div>
+<p>Run tests for a specific environment:</p>
+<div class="highlight"><pre><span></span><code>tox<span class="w"> </span>-e<span class="w"> </span>py310-django52
+</code></pre></div>
+<h3 id="code-quality"><a class="toclink" href="#code-quality">Code Quality</a></h3>
+<p>Before submitting code, ensure:</p>
+<ol>
+<li>All tests pass: <code>python runtests.py</code></li>
+<li>Code passes linting: <code>flake8 src tests</code></li>
+<li>Code is formatted: <code>black src tests</code></li>
+<li>Imports are sorted: <code>isort src tests</code></li>
+<li>Type checking passes (if applicable): <code>mypy src</code></li>
+</ol>
+<p>The project uses:
+- <strong>Black</strong> for code formatting
+- <strong>isort</strong> for import sorting
+- <strong>flake8</strong> for linting
+- <strong>mypy</strong> for type checking (optional)</p>
+<h2 id="making-changes"><a class="toclink" href="#making-changes">Making Changes</a></h2>
+<h3 id="development-workflow"><a class="toclink" href="#development-workflow">Development Workflow</a></h3>
+<ol>
+<li>
+<p>Create a new branch for your changes:
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/your-feature-name
+</code></pre></div></p>
+</li>
+<li>
+<p>Make your changes and write/update tests</p>
+</li>
+<li>
+<p>Ensure all tests pass and code quality checks pass</p>
+</li>
+<li>
+<p>Commit your changes:
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add feature: your feature description&quot;</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>Push to your fork:
+   <div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/your-feature-name
+</code></pre></div></p>
+</li>
+<li>
+<p>Create a Pull Request on GitHub</p>
+</li>
+</ol>
+<h3 id="commit-messages"><a class="toclink" href="#commit-messages">Commit Messages</a></h3>
+<p>Follow these guidelines for commit messages:</p>
 <ul>
-<li><strong>S3 Storage with Local Caching</strong>: Files are saved to both S3 and local storage</li>
-<li><strong>Static Files Support</strong>: Specialized storage for static files with compression</li>
-<li><strong>Media Files Support</strong>: Dedicated storage for media files</li>
-<li><strong>django-compressor Integration</strong>: Seamless integration with django-compressor</li>
-<li><strong>Django 3.2+ Support</strong>: Compatible with Django 3.2, 4.2, and 5.2</li>
-<li><strong>Flexible Configuration</strong>: Easy configuration through Django settings</li>
+<li>Use clear, descriptive commit messages</li>
+<li>Start with a capital letter</li>
+<li>Use imperative mood ("Add feature" not "Added feature")</li>
+<li>Keep the first line under 72 characters</li>
+<li>Add more detailed explanation if needed in the body</li>
 </ul>
-<h2 id="requirements"><a class="toclink" href="#requirements">Requirements</a></h2>
+<p>Example:
+<div class="highlight"><pre><span></span><code>Add support for Django 5.2
+
+- Update get_storage_class to use import_string for Django 5.2+
+- Add tests for Django 5.2 compatibility
+- Update tox.ini to include Django 5.2 test environments
+</code></pre></div></p>
+<h3 id="pull-request-guidelines"><a class="toclink" href="#pull-request-guidelines">Pull Request Guidelines</a></h3>
+<p>When creating a Pull Request:</p>
+<ol>
+<li><strong>Describe your changes</strong>: Provide a clear description of what your PR does</li>
+<li><strong>Reference issues</strong>: If your PR fixes an issue, reference it (e.g., "Fixes #123")</li>
+<li><strong>Add tests</strong>: Include tests for new features or bug fixes</li>
+<li><strong>Update documentation</strong>: Update relevant documentation if needed</li>
+<li><strong>Keep PRs focused</strong>: One PR should address one issue or feature</li>
+<li><strong>Ensure CI passes</strong>: All CI checks must pass before merge</li>
+</ol>
+<h3 id="testing-guidelines"><a class="toclink" href="#testing-guidelines">Testing Guidelines</a></h3>
 <ul>
-<li>Python 3.9 or higher</li>
-<li>Django 3.2 or higher</li>
-<li>django-storages (for S3 backend)</li>
-<li>django-compressor (for static file compression)</li>
+<li>Write tests for all new features</li>
+<li>Write tests for bug fixes</li>
+<li>Ensure tests cover edge cases</li>
+<li>Aim for high test coverage (maintain or improve coverage)</li>
+<li>Follow existing test patterns and structure</li>
 </ul>
-<h2 id="installation"><a class="toclink" href="#installation">Installation</a></h2>
-<p>Install django-custom-storage from PyPI:</p>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>django-custom-storage
-</code></pre></div>
-<h2 id="quick-setup"><a class="toclink" href="#quick-setup">Quick Setup</a></h2>
-<h3 id="1-add-to-installed_apps"><a class="toclink" href="#1-add-to-installed_apps">1. Add to INSTALLED_APPS</a></h3>
-<p>Add <code>compressor</code> and <code>custom_storage</code> to your <code>INSTALLED_APPS</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="c1"># ... other apps</span>
-    <span class="s2">&quot;compressor&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;custom_storage&quot;</span><span class="p">,</span>
-    <span class="c1"># ... other apps</span>
-<span class="p">]</span>
-</code></pre></div>
-<h3 id="2-configure-aws-s3-settings"><a class="toclink" href="#2-configure-aws-s3-settings">2. Configure AWS S3 Settings</a></h3>
-<p>Add your AWS S3 configuration to <code>settings.py</code>:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># AWS S3 Configuration</span>
-<span class="n">AWS_STORAGE_BUCKET_PREFIX</span> <span class="o">=</span> <span class="s2">&quot;cdn&quot;</span>
-<span class="n">AWS_STORAGE_BUCKET_NAME</span> <span class="o">=</span> <span class="s2">&quot;your_bucket_name&quot;</span>
-<span class="n">AWS_STORAGE_BUCKET_TLD</span> <span class="o">=</span> <span class="s2">&quot;com&quot;</span>
-
-<span class="n">AWS_ACCESS_KEY_ID</span> <span class="o">=</span> <span class="s2">&quot;YOUR_AWS_ACCESS_KEY_ID&quot;</span>
-<span class="n">AWS_SECRET_ACCESS_KEY</span> <span class="o">=</span> <span class="s2">&quot;YOUR_AWS_SECRET_ACCESS_KEY&quot;</span>
-<span class="n">AWS_S3_CUSTOM_DOMAIN</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_PREFIX</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_NAME</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">AWS_STORAGE_BUCKET_TLD</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="p">)</span>
-
-<span class="c1"># File paths</span>
-<span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="s2">&quot;/var/opt/your_project/mediaroot/&quot;</span>
-<span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="s2">&quot;/var/cache/your_project/staticroot/&quot;</span>
-<span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s2">&quot;/static/&quot;</span>
-</code></pre></div>
-<h3 id="3-configure-storage-backends"><a class="toclink" href="#3-configure-storage-backends">3. Configure Storage Backends</a></h3>
-<p>Configure the storage backends for static and media files:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># For Django 4.2+</span>
-<span class="n">STORAGES</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;BACKEND&quot;</span><span class="p">:</span> <span class="s2">&quot;custom_storage.storage.MediaRootCachedS3Storage&quot;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;staticfiles&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s2">&quot;BACKEND&quot;</span><span class="p">:</span> <span class="s2">&quot;custom_storage.storage.StaticRootCachedS3Storage&quot;</span><span class="p">,</span>
-    <span class="p">},</span>
-<span class="p">}</span>
-
-<span class="c1"># For Django &lt; 4.2</span>
-<span class="n">DEFAULT_FILE_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;custom_storage.storage.MediaRootCachedS3Storage&quot;</span>
-<span class="n">STATICFILES_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;custom_storage.storage.StaticRootCachedS3Storage&quot;</span>
-</code></pre></div>
-<h3 id="4-configure-django-compressor-optional"><a class="toclink" href="#4-configure-django-compressor-optional">4. Configure django-compressor (Optional)</a></h3>
-<p>If you want to use compression:</p>
-<div class="highlight"><pre><span></span><code><span class="n">COMPRESS_ENABLED</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">COMPRESS_OFFLINE</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">COMPRESS_STORAGE</span> <span class="o">=</span> <span class="s2">&quot;custom_storage.storage.StaticRootCachedS3Storage&quot;</span>
-<span class="n">COMPRESS_ROOT</span> <span class="o">=</span> <span class="n">STATIC_ROOT</span>
-
-<span class="n">STATICFILES_FINDERS</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="s2">&quot;django.contrib.staticfiles.finders.FileSystemFinder&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;django.contrib.staticfiles.finders.AppDirectoriesFinder&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;compressor.finders.CompressorFinder&quot;</span><span class="p">,</span>
-<span class="p">)</span>
-</code></pre></div>
-<p>That's it! Your Django project is now configured to use custom storage backends with S3 and local caching.</p>
-<h2 id="storage-classes"><a class="toclink" href="#storage-classes">Storage Classes</a></h2>
-<p>django-custom-storage provides several storage classes:</p>
+<p>Test files should be in the <code>tests/</code> directory and follow the naming convention <code>test_*.py</code>.</p>
+<h3 id="documentation-guidelines"><a class="toclink" href="#documentation-guidelines">Documentation Guidelines</a></h3>
 <ul>
-<li><strong>StaticRootCachedS3Storage</strong>: For static files with local caching</li>
-<li><strong>MediaRootCachedS3Storage</strong>: For media files with local caching</li>
-<li><strong>PublicMediaS3Boto3Storage</strong>: Public media files on S3</li>
-<li><strong>PrivateMediaS3Boto3Storage</strong>: Private media files on S3</li>
+<li>Update README.md if needed</li>
+<li>Update documentation in <code>docs/</code> directory</li>
+<li>Add docstrings to new functions and classes</li>
+<li>Follow existing documentation style</li>
 </ul>
-<p>See the <a href="../tutorial/storage-classes.md">Storage Classes documentation</a> for more details.</p>
-<h2 id="next-steps"><a class="toclink" href="#next-steps">Next Steps</a></h2>
+<h3 id="code-style"><a class="toclink" href="#code-style">Code Style</a></h3>
+<p>Follow PEP 8 style guidelines with these specific rules:</p>
 <ul>
-<li>Read the <a href="../tutorial/settings.md">Settings documentation</a> for detailed configuration options</li>
-<li>Check out the <a href="../tutorial/example.md">Example project</a> for a complete implementation</li>
-<li>See <a href="../community/references.md">References</a> for additional resources</li>
+<li>Maximum line length: 80 characters (enforced by flake8)</li>
+<li>Use 4 spaces for indentation</li>
+<li>Use type hints where appropriate</li>
+<li>Follow Django coding style for Django-specific code</li>
 </ul>
+<p>The project uses Black for automatic code formatting, so run <code>black</code> before committing.</p>
+<h2 id="reporting-bugs"><a class="toclink" href="#reporting-bugs">Reporting Bugs</a></h2>
+<p>When reporting bugs, please include:</p>
+<ol>
+<li><strong>Description</strong>: Clear description of the bug</li>
+<li><strong>Steps to reproduce</strong>: Step-by-step instructions</li>
+<li><strong>Expected behavior</strong>: What you expected to happen</li>
+<li><strong>Actual behavior</strong>: What actually happened</li>
+<li><strong>Environment</strong>: Python version, Django version, OS</li>
+<li><strong>Error messages</strong>: Full error traceback if applicable</li>
+<li><strong>Code samples</strong>: Minimal code sample that reproduces the issue</li>
+</ol>
+<p>Create a bug report in the <a href="https://github.com/DLRSP/django-custom-storage/issues">Issues</a> section.</p>
+<h2 id="suggesting-features"><a class="toclink" href="#suggesting-features">Suggesting Features</a></h2>
+<p>Feature suggestions are welcome! When suggesting features:</p>
+<ol>
+<li><strong>Describe the feature</strong>: Clear description of what you want</li>
+<li><strong>Explain the use case</strong>: Why this feature would be useful</li>
+<li><strong>Provide examples</strong>: Code examples of how it would be used</li>
+<li><strong>Consider alternatives</strong>: Any alternative approaches you've considered</li>
+</ol>
+<p>Create a feature request in the <a href="https://github.com/DLRSP/django-custom-storage/issues">Issues</a> section.</p>
+<h2 id="release-process"><a class="toclink" href="#release-process">Release Process</a></h2>
+<p>Releases are managed by maintainers. The version is managed using bumpversion:</p>
+<ul>
+<li>Patch release: <code>exec_bump-patch.bat</code></li>
+<li>Minor release: <code>exec_bump-minor.bat</code></li>
+<li>Major release: <code>exec_bump-major.bat</code></li>
+</ul>
+<h2 id="questions"><a class="toclink" href="#questions">Questions?</a></h2>
+<p>If you have questions about contributing:</p>
+<ul>
+<li>Check existing <a href="https://github.com/DLRSP/django-custom-storage/issues">Issues</a></li>
+<li>Check existing <a href="https://github.com/DLRSP/django-custom-storage/pulls">Pull Requests</a></li>
+<li>Create a new issue with the "question" label</li>
+</ul>
+<h2 id="license"><a class="toclink" href="#license">License</a></h2>
+<p>By contributing to django-custom-storage, you agree that your contributions will be licensed under the MIT License.</p>
 
 
 
@@ -1061,7 +1308,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    2026-06-14
+    2026-06-27
   </span>
 
     
@@ -1157,10 +1404,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.instant", "navigation.top", "content.code.annotate", "content.tabs.link", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.top", "content.code.annotate", "content.tabs.link", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>
