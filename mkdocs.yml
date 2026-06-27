@@ -62,6 +62,7 @@ nav:
     - 'Example': 'tutorial/example.md'
     - 'Customize':
       - 'Settings': 'tutorial/settings.md'
+      - 'Storage classes': 'tutorial/storage-classes.md'
  - Community:
     - 'References': 'community/references.md'
     - 'Contributing': 'community/contributing.md'

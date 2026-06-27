@@ -15,8 +15,8 @@
 * Check the demo repo on [GitHub](https://github.com/DLRSP/example/tree/django-custom-storage)
 
 ## Requirements
--   Python 3.9+ supported.
--   Django 3.2+ supported.
+-   Python 3.10+ supported.
+-   Django 4.2+ supported.
 
 ## Setup
 1. Install from **pip**:
@@ -34,91 +34,41 @@ INSTALLED_APPS = [
 ]
 ```
 
-3. Finally, Modify `settings.py` by adding the needed configurations:
+3. Configure storage in `settings.py`. The package ships sensible defaults and reads the
+   project specifics from `APP_CONFIG["custom_storage"]`; call `apply_storage_defaults`
+   at the end of the file so the `STORAGES`, compression and AWS settings are derived for
+   you:
 ```python
-# ...other setting...
-# Media files (Uploaded Images, Documents, Video, Audio)
+# Project paths (kept in the project; not owned by the package)
 MEDIA_ROOT = "/var/opt/your_project_name/mediaroot/"
-# Static files (Fonts, CSS, JavaScript, Icons, Theme's Images)
-STATIC_URL = "/static/"
 STATIC_ROOT = "/var/cache/your_project_name/staticroot/"
 
-# Example: cdn.your_project_bucket_name.com
-AWS_STORAGE_BUCKET_PREFIX = "cdn"
-AWS_STORAGE_BUCKET_NAME = "your_project_bucket_name"
-AWS_STORAGE_BUCKET_TLD = "com"
-
-# Access Key ID & Secret Access Key
+# AWS credentials
 AWS_ACCESS_KEY_ID = "YOUR_PROJECT_AWS_ACCESS_KEY_ID"
 AWS_SECRET_ACCESS_KEY = "YOUR_PROJECT_AWS_SECRET_ACCESS_KEY"
-# ...other setting...
 
-# START - Compress and Upload on S3
-import os
-import sys
-import datetime
-
-# Add option to FORCE_LOCAL_STORAGE
-# https://www.mslinn.com/django/1300-django-aws-control.html
-if "--force-local-storage" in sys.argv:
-    print("AWS datastore disabled; using local storage for assets instead.")
-    FORCE_LOCAL_STORAGE = True
-    sys.argv.remove("--force-local-storage")
-else:
-    print("Using AWS datastore for assets.")
-    FORCE_LOCAL_STORAGE = False
-
-if not FORCE_LOCAL_STORAGE:
-    DEFAULT_FILE_STORAGE = "custom_storage.storage.MediaRootCachedS3Storage"
-    if not os.getenv("RUN_COMPRESS", False):
-        STATICFILES_STORAGE = "custom_storage.storage.StaticRootCachedS3Storage"
-else:
-    DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
-
-COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
-
-STATICFILES_FINDERS = (
-    "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-    "compressor.finders.CompressorFinder",
-)
-COMPRESS_ROOT = STATIC_ROOT
-
-AWS_S3_CUSTOM_DOMAIN = (
-    f"{AWS_STORAGE_BUCKET_PREFIX}.{AWS_STORAGE_BUCKET_NAME}.{AWS_STORAGE_BUCKET_TLD}"
-)
-
-STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
-MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
-
-AWS_DEFAULT_ACL = "public-read"
-AWS_QUERYSTRING_AUTH = False
-AWS_FILE_EXPIRE = 200
-AWS_PRELOAD_METADATA = True
-
-two_months = datetime.timedelta(days=61)
-date_two_months_later = datetime.date.today() + two_months
-expires = date_two_months_later.strftime("%A, %d %B %Y 20:00:00 GMT")
-AWS_S3_OBJECT_PARAMETERS = {
-    "Expires": expires,
-    "CacheControl": "max-age=%d" % (int(two_months.total_seconds()),),
+# Project-specific options; everything else falls back to the package defaults.
+APP_CONFIG = {
+    "custom_storage": {
+        "BUCKET_NAME": "your_project_bucket_name",
+        "CUSTOM_DOMAIN": "cdn.your_project_bucket_name.com",
+        # Optional overrides: FILE_EXPIRE, DEFAULT_ACL, PRIVATE_LOCATION, ...
+    },
 }
 
-COMPRESS_CSS_HASHING_METHOD = None
-COMPRESS_CSS_FILTERS = [
-    "compressor.filters.css_default.CssAbsoluteFilter",
-    # 'compressor.filters.css_default.CssRelativeFilter',
-    "compressor.filters.cssmin.CSSMinFilter",
-]
-COMPRESS_JS_FILTERS = [
-    "compressor.filters.jsmin.JSMinFilter",
-]
+from custom_storage.conf import apply_storage_defaults
 
-COMPRESS_OUTPUT_DIR = "compressed_static"
-COMPRESS_STORAGE = "custom_storage.storage.StaticRootCachedS3Storage"
-# END - Compress and Upload on S3
+apply_storage_defaults(globals())
 ```
+
+   Top-level Django settings always win, so projects that already declare `STORAGES`,
+   `COMPRESS_*` or `AWS_*` keep working unchanged. To serve assets from the local
+   filesystem (handy in development) start the server with `--force-local-storage` or set
+   `FORCE_LOCAL_STORAGE = True`.
+
+   See [Settings](docs/tutorial/settings.md) for every available key and
+   [Storage classes](docs/tutorial/storage-classes.md) for the backends, including the
+   `private` storage that serves non-public uploads through signed, expiring URLs.
 
 
 ## Run Example Project

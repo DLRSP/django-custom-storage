@@ -1,4 +1,3 @@
-# coding: utf-8
 from django.apps import AppConfig
 
 
@@ -8,4 +7,11 @@ class CustomStorageConfig(AppConfig):
     verbose_name = "Custom Storage"
 
     def ready(self):
-        from . import settings  # noqa: F401
+        # Backward compatibility: projects that do not call
+        # apply_storage_defaults() from their settings.py still get the defaults.
+        # This is a no-op when every value is already defined.
+        from django.conf import settings
+
+        from .conf import apply_storage_defaults
+
+        apply_storage_defaults(settings)

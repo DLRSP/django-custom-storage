@@ -2,21 +2,22 @@
 
 from unittest.mock import Mock, patch
 
+from django.conf import settings
 from django.core.files.base import ContentFile
 from django.test import TestCase
 
 from custom_storage.storage import (
-    StaticRootCachedS3Storage,
     MediaRootCachedS3Storage,
-    PublicMediaS3Boto3Storage,
     PrivateMediaS3Boto3Storage,
+    PublicMediaS3Boto3Storage,
+    StaticRootCachedS3Storage,
 )
-from custom_storage.settings import (
-    AWS_S3_STATIC_LOCATION,
-    AWS_S3_STATIC_URL,
-    AWS_S3_MEDIA_LOCATION,
-    AWS_S3_MEDIA_URL,
-)
+
+# Resolved values the storage classes use as defaults (applied onto settings).
+AWS_S3_STATIC_LOCATION = settings.AWS_S3_STATIC_LOCATION
+AWS_S3_STATIC_URL = settings.AWS_S3_STATIC_URL
+AWS_S3_MEDIA_LOCATION = settings.AWS_S3_MEDIA_LOCATION
+AWS_S3_MEDIA_URL = settings.AWS_S3_MEDIA_URL
 
 
 class StaticRootCachedS3StorageTestCase(TestCase):

@@ -169,3 +169,10 @@ pip-log.txt
 ## Gh-Pages
 #############
 site
+
+# AI
+AGENTS.md
+.cursor/dlrsp-runs/
+.cursor/plans/
+.cursor/rules/
+.cursor/commands/

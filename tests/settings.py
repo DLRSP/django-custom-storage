@@ -1,9 +1,12 @@
-"""Test's settings"""
+"""Test settings.
+
+Storage/compressor/AWS configuration is applied by the ``custom_storage`` app from
+its own defaults; the project only declares the minimal paths and an
+``APP_CONFIG['custom_storage']`` block, mirroring how consumers configure it.
+"""
 
 import os
-import sys
-import datetime
-from django import VERSION as DJANGO_VERSION
+
 from django.utils.translation import gettext_noop
 
 DEBUG = False
@@ -56,136 +59,24 @@ USE_TZ = True
 LANGUAGE_CODE = "en"
 USE_I18N = True
 
-# Languages we provide translations for, out of the box.
 LANGUAGES = [
-    ("de", gettext_noop("German")),
     ("en", gettext_noop("English")),
-    ("es", gettext_noop("Spanish")),
-    ("fr", gettext_noop("French")),
     ("it", gettext_noop("Italian")),
-    ("ja", gettext_noop("Japanese")),
-    ("nl", gettext_noop("Dutch")),
-    ("ru", gettext_noop("Russian")),
-    ("zh-hans", gettext_noop("Simplified Chinese")),
-    ("zh-hant", gettext_noop("Traditional Chinese")),
 ]
 
-
-# Media files (Uploaded Images, Documents, Video, Audio)
+# Project-specific paths (stay in the project; not owned by the package).
 MEDIA_ROOT = "/var/opt/your_project_name/mediaroot/"
-# Static files (Fonts, CSS, JavaScript, Icons, Theme's Images)
-STATIC_URL = "/static/"
 STATIC_ROOT = "/var/cache/your_project_name/staticroot/"
 
-# Example: cdn.your_project_bucket_name.com
-AWS_STORAGE_BUCKET_PREFIX = "cdn"
-AWS_STORAGE_BUCKET_NAME = "your_project_bucket_name"
-AWS_STORAGE_BUCKET_TLD = "com"
-
-# Access Key ID & Secret Access Key
-AWS_ACCESS_KEY_ID = "YOUR_PROJECT_AWS_ACCESS_KEY_ID"
-AWS_SECRET_ACCESS_KEY = "YOUR_PROJECT_AWS_SECRET_ACCESS_KEY"
-# ...other setting...
-
-# START - Compress and Upload on S3
-# Add option to FORCE_LOCAL_STORAGE
-# https://www.mslinn.com/django/1300-django-aws-control.html
-if "--force-local-storage" in sys.argv:
-    print("AWS datastore disabled; using local storage for assets instead.")
-    FORCE_LOCAL_STORAGE = True
-    sys.argv.remove("--force-local-storage")
-else:
-    print("Using AWS datastore for assets.")
-    FORCE_LOCAL_STORAGE = False
-
-if DJANGO_VERSION < (4, 2):
-    if not FORCE_LOCAL_STORAGE:
-        DEFAULT_FILE_STORAGE = "custom_storage.storage.MediaRootCachedS3Storage"
-        if not os.getenv("RUN_COMPRESS", False):
-            STATICFILES_STORAGE = (
-                "custom_storage.storage.StaticRootCachedS3Storage"
-            )
-    else:
-        DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
-    # For Django < 4.2, we need to set STORAGES manually for the storage classes to work
-    # Note: Django < 4.2 doesn't have STORAGES by default, but custom_storage.settings expects it
-    STORAGES = {
-        "default": {"BACKEND": DEFAULT_FILE_STORAGE},
-        "compressor": {"BACKEND": "compressor.storage.CompressorFileStorage"},
-        "local": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
-    }
-    # Add staticfiles if STATICFILES_STORAGE is set
-    if not os.getenv("RUN_COMPRESS", False) and not FORCE_LOCAL_STORAGE:
-        STORAGES["staticfiles"] = {"BACKEND": STATICFILES_STORAGE}
-else:
-    if not FORCE_LOCAL_STORAGE:
-        STORAGES = {
-            "default": {
-                "BACKEND": "custom_storage.storage.MediaRootCachedS3Storage"
-            },
-        }
-    else:
-        STORAGES = {
-            "default": {
-                "BACKEND": "django.core.files.storage.FileSystemStorage"
-            },
-        }
-    if not os.getenv("RUN_COMPRESS", False):
-        STORAGES.update(
-            {
-                "staticfiles": {
-                    "BACKEND": "custom_storage.storage.StaticRootCachedS3Storage"
-                },
-            }
-        )
-    # Add compressor and local storage backends needed by storage classes
-    STORAGES.update(
-        {
-            "compressor": {
-                "BACKEND": "compressor.storage.CompressorFileStorage"
-            },
-            "local": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
-        }
-    )
-
-COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True
-
-STATICFILES_FINDERS = (
-    "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-    "compressor.finders.CompressorFinder",
-)
-COMPRESS_ROOT = STATIC_ROOT
-
-AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_PREFIX}.{AWS_STORAGE_BUCKET_NAME}.{AWS_STORAGE_BUCKET_TLD}"
-
-STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
-MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
-
-AWS_DEFAULT_ACL = "public-read"
-AWS_QUERYSTRING_AUTH = False
-AWS_FILE_EXPIRE = 200
-AWS_PRELOAD_METADATA = True
-
-two_months = datetime.timedelta(days=61)
-date_two_months_later = datetime.date.today() + two_months
-expires = date_two_months_later.strftime("%A, %d %B %Y 20:00:00 GMT")
-AWS_S3_OBJECT_PARAMETERS = {
-    "Expires": expires,
-    "CacheControl": "max-age=%d" % (int(two_months.total_seconds()),),
+# Common storage config via APP_CONFIG; the package derives STATIC_URL/MEDIA_URL,
+# STORAGES, COMPRESS_* and AWS_* defaults from this + custom_storage.defaults.
+APP_CONFIG = {
+    "custom_storage": {
+        "BUCKET_NAME": "your_project_bucket_name",
+        "CUSTOM_DOMAIN": "cdn.your_project_bucket_name.com",
+    },
 }
 
-COMPRESS_CSS_HASHING_METHOD = None
-COMPRESS_CSS_FILTERS = [
-    "compressor.filters.css_default.CssAbsoluteFilter",
-    # 'compressor.filters.css_default.CssRelativeFilter',
-    "compressor.filters.cssmin.CSSMinFilter",
-]
-COMPRESS_JS_FILTERS = [
-    "compressor.filters.jsmin.JSMinFilter",
-]
+from custom_storage.conf import apply_storage_defaults  # noqa: E402
 
-COMPRESS_OUTPUT_DIR = "compressed_static"
-COMPRESS_STORAGE = "custom_storage.storage.StaticRootCachedS3Storage"
-# END - Compress and Upload on S3
+apply_storage_defaults(globals())

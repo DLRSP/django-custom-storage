@@ -1,0 +1,1 @@
+Fix a ``RuntimeError: Settings already configured`` raised when ``DEBUG`` was true: the local-development overrides now assign settings directly instead of calling ``settings.configure()``.

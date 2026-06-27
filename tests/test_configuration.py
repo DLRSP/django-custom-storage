@@ -9,7 +9,7 @@ from django.test import TestCase, override_settings
 
 import custom_storage
 from custom_storage.apps import CustomStorageConfig
-from custom_storage.settings import setting
+from custom_storage.conf import apply_storage_defaults, setting
 
 
 class ModuleInstallationTestCase(TestCase):
@@ -48,12 +48,13 @@ class ModuleInstallationTestCase(TestCase):
         self.assertTrue(PublicMediaS3Boto3Storage)
         self.assertTrue(PrivateMediaS3Boto3Storage)
 
-    def test_settings_module_can_be_imported(self):
-        """Test that settings module can be imported"""
-        from custom_storage import settings as custom_storage_settings
+    def test_conf_module_can_be_imported(self):
+        """Test that the conf module exposes the public helpers"""
+        from custom_storage import conf as custom_storage_conf
 
-        self.assertTrue(custom_storage_settings)
-        self.assertTrue(hasattr(custom_storage_settings, "setting"))
+        self.assertTrue(custom_storage_conf)
+        self.assertTrue(hasattr(custom_storage_conf, "setting"))
+        self.assertTrue(hasattr(custom_storage_conf, "apply_storage_defaults"))
 
 
 class AppConfigTestCase(TestCase):
@@ -109,17 +110,13 @@ class SettingsConfigurationTestCase(TestCase):
 
     def test_aws_s3_static_location_is_set(self):
         """Test that AWS_S3_STATIC_LOCATION is configured"""
-        from custom_storage.settings import AWS_S3_STATIC_LOCATION
-
-        self.assertIsNotNone(AWS_S3_STATIC_LOCATION)
-        self.assertIsInstance(AWS_S3_STATIC_LOCATION, str)
+        self.assertTrue(hasattr(settings, "AWS_S3_STATIC_LOCATION"))
+        self.assertIsInstance(settings.AWS_S3_STATIC_LOCATION, str)
 
     def test_aws_s3_media_location_is_set(self):
         """Test that AWS_S3_MEDIA_LOCATION is configured"""
-        from custom_storage.settings import AWS_S3_MEDIA_LOCATION
-
-        self.assertIsNotNone(AWS_S3_MEDIA_LOCATION)
-        self.assertIsInstance(AWS_S3_MEDIA_LOCATION, str)
+        self.assertTrue(hasattr(settings, "AWS_S3_MEDIA_LOCATION"))
+        self.assertIsInstance(settings.AWS_S3_MEDIA_LOCATION, str)
 
     def test_aws_s3_static_url_has_trailing_slash(self):
         """Test that AWS_S3_STATIC_URL has trailing slash"""
@@ -131,22 +128,20 @@ class SettingsConfigurationTestCase(TestCase):
 
     def test_aws_s3_media_url_has_trailing_slash(self):
         """Test that AWS_S3_MEDIA_URL has trailing slash"""
-        from custom_storage.settings import AWS_S3_MEDIA_URL
+        self.assertTrue(hasattr(settings, "AWS_S3_MEDIA_URL"))
+        self.assertTrue(settings.AWS_S3_MEDIA_URL.endswith("/"))
 
-        self.assertTrue(AWS_S3_MEDIA_URL.endswith("/"))
-
-    @override_settings(AWS_S3_STATIC_URL="/static")  # Missing trailing slash
     def test_aws_s3_static_url_raises_error_without_trailing_slash(self):
-        """Test that ImproperlyConfigured is raised if AWS_S3_STATIC_URL lacks trailing slash"""
-        # This test verifies the validation logic in settings.py
-        # Note: The error is raised during import, so we need to reload
+        """ImproperlyConfigured is raised if the static URL lacks a trailing slash"""
+        ns = {
+            "DEBUG": False,
+            "STATIC_ROOT": "/srv/static/",
+            "MEDIA_ROOT": "/srv/media/",
+            "STATIC_URL": "/static",  # missing trailing slash
+            "MEDIA_URL": "/media/",
+        }
         with self.assertRaises(ImproperlyConfigured):
-            # Reload settings module to trigger validation
-            import importlib
-
-            import custom_storage.settings as settings_module
-
-            importlib.reload(settings_module)
+            apply_storage_defaults(ns)
 
     def test_compress_root_is_set(self):
         """Test that COMPRESS_ROOT is set"""
@@ -209,13 +204,9 @@ class STORAGESConfigurationTestCase(TestCase):
         )
 
     def test_default_file_storage_is_set(self):
-        """Test that the default storage backend is configured via STORAGES.
-
-        DEFAULT_FILE_STORAGE was deprecated in Django 4.2 and removed in 5.1;
-        STORAGES['default'] is the source of truth on supported Django.
-        """
-        self.assertIn("default", settings.STORAGES)
-        self.assertIsNotNone(settings.STORAGES["default"]["BACKEND"])
+        """Test that DEFAULT_FILE_STORAGE is set"""
+        self.assertTrue(hasattr(settings, "DEFAULT_FILE_STORAGE"))
+        self.assertIsNotNone(settings.DEFAULT_FILE_STORAGE)
 
     def test_thumbnail_default_storage_is_set(self):
         """Test that THUMBNAIL_DEFAULT_STORAGE is set"""
@@ -338,6 +329,7 @@ class IntegrationConfigurationTestCase(TestCase):
             "COMPRESS_ENABLED",
             "COMPRESS_OFFLINE",
             "STORAGES",
+            "DEFAULT_FILE_STORAGE",
         ]
 
         for setting_name in required_settings:
