@@ -293,11 +293,10 @@ def apply_storage_defaults(ns) -> dict[str, Any]:
     if media_root is not None:
         _setdefault(ns, "AWS_S3_MEDIA_ROOT", media_root)
 
-    # Default + thumbnail storage.
-    _setdefault(ns, "DEFAULT_FILE_STORAGE", storages["default"]["BACKEND"])
-    _setdefault(
-        ns, "THUMBNAIL_DEFAULT_STORAGE", _get(ns, "DEFAULT_FILE_STORAGE")
-    )
+    # Thumbnail storage. Do not set DEFAULT_FILE_STORAGE: on Django 4.2+ it is
+    # mutually exclusive with STORAGES (ImproperlyConfigured) and it was removed
+    # in Django 5.1. easy-thumbnails reads THUMBNAIL_DEFAULT_STORAGE directly.
+    _setdefault(ns, "THUMBNAIL_DEFAULT_STORAGE", storages["default"]["BACKEND"])
 
     # Compressor.
     _setdefault(ns, "COMPRESS_OUTPUT_DIR", defaults.COMPRESS_OUTPUT_DIR)

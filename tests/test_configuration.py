@@ -203,10 +203,21 @@ class STORAGESConfigurationTestCase(TestCase):
             "django.core.files.storage.FileSystemStorage",
         )
 
-    def test_default_file_storage_is_set(self):
-        """Test that DEFAULT_FILE_STORAGE is set"""
-        self.assertTrue(hasattr(settings, "DEFAULT_FILE_STORAGE"))
-        self.assertIsNotNone(settings.DEFAULT_FILE_STORAGE)
+    def test_default_file_storage_not_injected(self):
+        """DEFAULT_FILE_STORAGE must not be injected.
+
+        It is mutually exclusive with STORAGES on Django 4.2+ (raises
+        ImproperlyConfigured) and was removed in Django 5.1.
+        """
+        ns = {
+            "DEBUG": False,
+            "STATIC_ROOT": "/srv/static/",
+            "MEDIA_ROOT": "/srv/media/",
+            "STATIC_URL": "/static/",
+            "MEDIA_URL": "/media/",
+        }
+        apply_storage_defaults(ns)
+        self.assertNotIn("DEFAULT_FILE_STORAGE", ns)
 
     def test_thumbnail_default_storage_is_set(self):
         """Test that THUMBNAIL_DEFAULT_STORAGE is set"""
@@ -329,7 +340,7 @@ class IntegrationConfigurationTestCase(TestCase):
             "COMPRESS_ENABLED",
             "COMPRESS_OFFLINE",
             "STORAGES",
-            "DEFAULT_FILE_STORAGE",
+            "THUMBNAIL_DEFAULT_STORAGE",
         ]
 
         for setting_name in required_settings:

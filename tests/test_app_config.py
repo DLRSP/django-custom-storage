@@ -37,7 +37,9 @@ def test_s1_package_applies_common_defaults():
     assert ns["AWS_FILE_EXPIRE"] == defaults.AWS_FILE_EXPIRE
     assert ns["COMPRESS_OUTPUT_DIR"] == defaults.COMPRESS_OUTPUT_DIR
     assert "compressor.finders.CompressorFinder" in ns["STATICFILES_FINDERS"]
-    assert ns["THUMBNAIL_DEFAULT_STORAGE"] == ns["DEFAULT_FILE_STORAGE"]
+    assert (
+        ns["THUMBNAIL_DEFAULT_STORAGE"] == ns["STORAGES"]["default"]["BACKEND"]
+    )
     for alias in ("default", "staticfiles", "compressor", "local"):
         assert alias in ns["STORAGES"]
 
