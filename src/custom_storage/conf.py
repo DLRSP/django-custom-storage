@@ -209,6 +209,14 @@ def apply_storage_defaults(ns) -> dict[str, Any]:
             _setdefault(ns, "STATIC_URL", f"https://{custom_domain}/static/")
             _setdefault(ns, "MEDIA_URL", f"https://{custom_domain}/media/")
 
+    # Local URLs whenever assets are not served from the CDN: force-local
+    # collectstatic, or no custom domain configured. setdefault keeps any CDN URL
+    # set above; without this the trailing-slash checks below abort settings import
+    # when force_local is set and DEBUG is off (e.g. production collectstatic
+    # --force-local-storage), which surfaces as "Unknown command: collectstatic".
+    _setdefault(ns, "STATIC_URL", "/static/")
+    _setdefault(ns, "MEDIA_URL", "/media/")
+
     # Ensure STORAGES exists with every alias the storage classes resolve.
     if force_local:
         default_backend = defaults.FILESYSTEM_BACKEND

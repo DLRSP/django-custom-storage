@@ -1,3 +1,12 @@
+custom_storage 0.3.4 (2026-06-28)
+=================================
+
+Bug Fixes
+---------
+
+- Set local ``STATIC_URL``/``MEDIA_URL`` fallbacks in forced-local mode. Previously ``apply_storage_defaults`` only derived these URLs from the CDN domain when serving from S3, so a forced-local run with ``DEBUG`` off (e.g. ``collectstatic --force-local-storage``) left ``MEDIA_URL`` unset and aborted settings import with ``ImproperlyConfigured``, which Django then reported as ``Unknown command: 'collectstatic'``.
+
+
 custom_storage 0.3.3 (2026-06-27)
 =================================
 

@@ -126,6 +126,18 @@ def test_s7_force_local_storage():
     )
 
 
+def test_s7b_force_local_without_explicit_urls():
+    # Production collectstatic --force-local-storage runs with DEBUG off and no
+    # project-defined STATIC_URL/MEDIA_URL; the package must still produce valid
+    # local URLs instead of raising ImproperlyConfigured.
+    ns = base_ns()
+    ns["APP_CONFIG"]["custom_storage"]["FORCE_LOCAL"] = True
+    apply_storage_defaults(ns)
+    assert ns["STATIC_URL"] == "/static/"
+    assert ns["MEDIA_URL"] == "/media/"
+    assert ns["STORAGES"]["default"]["BACKEND"] == defaults.FILESYSTEM_BACKEND
+
+
 def test_s8_run_compress_env(monkeypatch):
     monkeypatch.setenv("RUN_COMPRESS", "1")
     ns = base_ns()
