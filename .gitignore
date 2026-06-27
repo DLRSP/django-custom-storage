@@ -172,7 +172,7 @@ site
 
 # AI
 AGENTS.md
-.cursor/dlrsp-runs/
-.cursor/plans/
-.cursor/rules/
-.cursor/commands/
+.*/dlrsp-runs/
+.*/plans/
+.*/rules/
+.*/commands/
