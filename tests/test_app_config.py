@@ -249,3 +249,50 @@ def test_returns_resolved_locations():
     assert resolved["AWS_S3_MEDIA_LOCATION"] == defaults.MEDIA_LOCATION
     assert resolved["AWS_S3_STATIC_URL"].endswith("/")
     assert resolved["AWS_S3_MEDIA_URL"].endswith("/")
+
+
+def test_compress_storage_alias_when_s3_compress_output():
+    ns = base_ns(COMPRESS_STORAGE=defaults.STATIC_S3_BACKEND)
+    apply_storage_defaults(ns)
+    assert ns["COMPRESS_STORAGE_ALIAS"] == defaults.COMPRESSOR_OUTPUT_ALIAS
+    assert (
+        ns["STORAGES"]["compressor"]["BACKEND"] == defaults.COMPRESSOR_BACKEND
+    )
+    assert (
+        ns["STORAGES"][defaults.COMPRESSOR_OUTPUT_ALIAS]["BACKEND"]
+        == defaults.STATIC_S3_BACKEND
+    )
+
+
+def test_compress_storage_alias_when_default_s3_staticfiles():
+    ns = base_ns()
+    apply_storage_defaults(ns)
+    assert ns["COMPRESS_STORAGE"] == defaults.STATIC_S3_BACKEND
+    assert ns["COMPRESS_STORAGE_ALIAS"] == defaults.COMPRESSOR_OUTPUT_ALIAS
+
+
+def test_compress_storage_alias_skipped_when_force_local():
+    ns = base_ns(
+        COMPRESS_STORAGE=defaults.STATIC_S3_BACKEND,
+        STATIC_URL="/static/",
+        MEDIA_URL="/media/",
+    )
+    ns["APP_CONFIG"]["custom_storage"]["FORCE_LOCAL"] = True
+    apply_storage_defaults(ns)
+    assert "COMPRESS_STORAGE_ALIAS" not in ns
+    assert defaults.COMPRESSOR_OUTPUT_ALIAS not in ns["STORAGES"]
+
+
+def test_compress_storage_alias_skipped_in_debug():
+    ns = base_ns(COMPRESS_STORAGE=defaults.STATIC_S3_BACKEND, DEBUG=True)
+    apply_storage_defaults(ns)
+    assert "COMPRESS_STORAGE_ALIAS" not in ns
+
+
+def test_compress_storage_alias_respects_project_override():
+    ns = base_ns(
+        COMPRESS_STORAGE=defaults.STATIC_S3_BACKEND,
+        COMPRESS_STORAGE_ALIAS="project_compress",
+    )
+    apply_storage_defaults(ns)
+    assert ns["COMPRESS_STORAGE_ALIAS"] == "project_compress"

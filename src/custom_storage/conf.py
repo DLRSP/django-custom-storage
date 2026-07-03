@@ -318,6 +318,23 @@ def apply_storage_defaults(ns) -> dict[str, Any]:
     _setdefault(ns, "COMPRESS_JS_FILTERS", list(defaults.COMPRESS_JS_FILTERS))
     _setdefault(ns, "STATICFILES_FINDERS", tuple(defaults.STATICFILES_FINDERS))
 
+    # django-compressor writes bundles via STORAGES[COMPRESS_STORAGE_ALIAS], not the
+    # COMPRESS_STORAGE string when that alias exists. STORAGES["compressor"] must stay
+    # on CompressorFileStorage because StaticRootCachedS3Storage uses it as a local
+    # cache; route S3 output through a separate alias instead.
+    compress_backend = _get(ns, "COMPRESS_STORAGE")
+    if (
+        not force_local
+        and not _get(ns, "DEBUG", False)
+        and compress_backend == defaults.STATIC_S3_BACKEND
+    ):
+        storages.setdefault(
+            defaults.COMPRESSOR_OUTPUT_ALIAS,
+            {"BACKEND": compress_backend},
+        )
+        _setdefault(ns, "COMPRESS_STORAGE_ALIAS", defaults.COMPRESSOR_OUTPUT_ALIAS)
+        _set(ns, "STORAGES", storages)
+
     # AWS S3 behaviour.
     _setdefault(
         ns,

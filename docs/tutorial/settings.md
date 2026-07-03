@@ -126,6 +126,12 @@ COMPRESS_STORAGE = "custom_storage.storage.StaticRootCachedS3Storage"
 COMPRESS_ROOT = STATIC_ROOT  # Root directory for compressed files
 COMPRESS_OUTPUT_DIR = "compressed_static"  # Output directory for compressed files
 
+When `COMPRESS_STORAGE` targets S3 (`StaticRootCachedS3Storage`), `apply_storage_defaults`
+also registers `STORAGES["compressor_output"]` and sets `COMPRESS_STORAGE_ALIAS` to
+`compressor_output`. The `compressor` alias stays on local `CompressorFileStorage`
+(the cache used inside `StaticRootCachedS3Storage`); offline `manage.py compress` then
+uploads bundles through the S3 alias instead of writing only under `COMPRESS_ROOT`.
+
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",

@@ -19,6 +19,8 @@ STATICFILES_LOCAL_BACKEND = (
 )
 FILESYSTEM_BACKEND = "django.core.files.storage.FileSystemStorage"
 COMPRESSOR_BACKEND = "compressor.storage.CompressorFileStorage"
+# STORAGES alias for django-compressor bundle output when COMPRESS_STORAGE is S3.
+COMPRESSOR_OUTPUT_ALIAS = "compressor_output"
 
 # S3 object key prefixes.
 STATIC_LOCATION = "static"
