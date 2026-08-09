@@ -160,7 +160,7 @@ package = "custom_storage"
 package_dir = "src"
 filename = "CHANGELOG.rst"
 directory = "news/"
-
+version = "0.3.5"
 issue_format = "`#{issue} <https://github.com/DLRSP/django-custom-storage/issues/{issue}>`_"
 
 type = [
@@ -182,3 +182,7 @@ allow_dirty = true
 
 [[tool.bumpversion.files]]
 filename = "./src/custom_storage/__init__.py"
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
