@@ -1,3 +1,12 @@
+custom_storage 0.3.7 (2026-08-11)
+=================================
+
+Features
+--------
+
+- Add env-driven S3 object-write gate (``CUSTOM_STORAGE_ALLOW_S3_WRITES``) with Windows deny-by-default and refuse on save/delete.
+
+
 custom_storage 0.3.6 (2026-08-11)
 =================================
 

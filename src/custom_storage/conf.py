@@ -134,19 +134,58 @@ def get_custom_domain(ns) -> str:
     return ""
 
 
+_FALSEY = frozenset({"", "0", "false", "no", "off"})
+_TRUTHY = frozenset({"1", "true", "yes", "on"})
+
+# Public env: set to "true"/"false" to allow or deny S3 object create/delete.
+# When unset, Windows defaults to deny; other platforms allow unless
+# FORCE_LOCAL_STORAGE is truthy. Hostnames are never consulted.
+_ALLOW_S3_WRITES_ENV = "CUSTOM_STORAGE_ALLOW_S3_WRITES"
+
+
+def s3_object_writes_denied() -> bool:
+    """Return True when this process must not create/overwrite S3 objects.
+
+    Safe default for developer workstations and any host that opts out via
+    ``CUSTOM_STORAGE_ALLOW_S3_WRITES=false`` or ``FORCE_LOCAL_STORAGE=1``. An
+    explicit ``CUSTOM_STORAGE_ALLOW_S3_WRITES=true`` opts in (including on
+    Windows). Deployment hostnames are never consulted.
+    """
+    allow_raw = os.getenv(_ALLOW_S3_WRITES_ENV)
+    if allow_raw is not None:
+        allow = allow_raw.strip().lower()
+        if allow in _FALSEY:
+            return True
+        if allow in _TRUTHY:
+            return False
+    force = os.getenv("FORCE_LOCAL_STORAGE")
+    if force is not None and force.strip().lower() not in _FALSEY:
+        return True
+    # Developer machines on Windows: deny unless explicitly opted in above.
+    if os.name == "nt":
+        return True
+    return False
+
+
 def get_force_local(ns) -> bool:
     if "--force-local-storage" in sys.argv:
         sys.argv.remove("--force-local-storage")
+        return True
+    # Write-deny gate wins over an explicit FORCE_LOCAL_STORAGE = False in settings.
+    if s3_object_writes_denied():
+        return True
+    force_env = os.getenv("FORCE_LOCAL_STORAGE")
+    if force_env is not None and force_env.strip().lower() not in _FALSEY:
         return True
     return resolve_bool(
         ns, "FORCE_LOCAL_STORAGE", "FORCE_LOCAL", defaults.FORCE_LOCAL
     )
 
 
-_FALSEY = frozenset({"", "0", "false", "no", "off"})
-
-
 def get_run_compress(ns) -> bool:
+    # Offline compress uploads bundles via COMPRESS_STORAGE — refuse when writes denied.
+    if s3_object_writes_denied():
+        return False
     env = os.getenv("RUN_COMPRESS")
     if env is not None:
         return env.strip().lower() not in _FALSEY

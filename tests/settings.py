@@ -77,6 +77,9 @@ APP_CONFIG = {
     },
 }
 
+# Opt in to S3 backends for the package test suite (Windows denies by default).
+os.environ.setdefault("CUSTOM_STORAGE_ALLOW_S3_WRITES", "true")
+
 from custom_storage.conf import apply_storage_defaults  # noqa: E402
 
 apply_storage_defaults(globals())

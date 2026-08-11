@@ -1,8 +1,10 @@
 from django.conf import settings
+from django.core.exceptions import ImproperlyConfigured
 from django.utils.module_loading import import_string
 from storages.backends.s3 import S3Storage
 
 from . import defaults
+from .conf import s3_object_writes_denied
 
 
 # Django deprecated django.core.files.storage.get_storage_class in 4.2 and
@@ -11,6 +13,16 @@ from . import defaults
 # module-level name for backward compatibility.
 def get_storage_class(import_path):
     return import_string(import_path)
+
+
+def _refuse_s3_object_write(action: str) -> None:
+    """Fail closed when S3 object writes are disabled for this process."""
+    if s3_object_writes_denied():
+        raise ImproperlyConfigured(
+            f"Refusing S3 object {action}: set CUSTOM_STORAGE_ALLOW_S3_WRITES=true "
+            "to opt in, or use local storage (--force-local-storage / "
+            "FORCE_LOCAL_STORAGE=1)."
+        )
 
 
 class StaticRootCachedS3Storage(S3Storage):
@@ -39,9 +51,15 @@ class StaticRootCachedS3Storage(S3Storage):
             )()
 
     def save(self, name, content, max_length=None):
+        _refuse_s3_object_write("save")
         self.local_storage._save(name, content)
         super().save(name, self.local_storage._open(name))
         return name
+
+    def delete(self, name):
+        _refuse_s3_object_write("delete")
+        self.local_storage.delete(name)
+        return super().delete(name)
 
 
 class MediaRootCachedS3Storage(S3Storage):
@@ -70,11 +88,13 @@ class MediaRootCachedS3Storage(S3Storage):
             )()
 
     def save(self, name, content, max_length=None):
+        _refuse_s3_object_write("save")
         self.local_storage._save(name, content)
         super().save(name, self.local_storage._open(name))
         return name
 
     def delete(self, name):
+        _refuse_s3_object_write("delete")
         self.local_storage.delete(name)
         super().delete(name)
 
@@ -90,6 +110,14 @@ class PublicMediaS3Boto3Storage(S3Storage):
     location = defaults.MEDIA_LOCATION
     default_acl = "public-read"
     file_overwrite = False
+
+    def save(self, name, content, max_length=None):
+        _refuse_s3_object_write("save")
+        return super().save(name, content, max_length=max_length)
+
+    def delete(self, name):
+        _refuse_s3_object_write("delete")
+        return super().delete(name)
 
 
 class PrivateMediaS3Boto3Storage(S3Storage):
@@ -120,3 +148,11 @@ class PrivateMediaS3Boto3Storage(S3Storage):
                 defaults.PRIVATE_URL_EXPIRE,
             )
         )
+
+    def save(self, name, content, max_length=None):
+        _refuse_s3_object_write("save")
+        return super().save(name, content, max_length=max_length)
+
+    def delete(self, name):
+        _refuse_s3_object_write("delete")
+        return super().delete(name)

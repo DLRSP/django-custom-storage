@@ -170,12 +170,27 @@ import os
 
 FORCE_LOCAL_STORAGE = os.getenv("FORCE_LOCAL_STORAGE", "false").lower() == "true"
 
-# Option 2: Command line argument (deprecated, use environment variable instead)
-# if "--force-local-storage" in sys.argv:
-#     FORCE_LOCAL_STORAGE = True
+# Option 2: Command line argument (still supported by apply_storage_defaults)
+# python manage.py collectstatic --force-local-storage
 ```
 
 When `FORCE_LOCAL_STORAGE` is `True`, the storage backends will use local file system storage instead of S3.
+
+### S3 object-write gate
+
+`apply_storage_defaults` and the S3 storage classes honour a process-level write
+gate so developer machines and opted-out hosts cannot create or delete objects
+in shared buckets:
+
+| Signal | Effect |
+|--------|--------|
+| `CUSTOM_STORAGE_ALLOW_S3_WRITES=false` | Force local backends; S3 `save`/`delete` raise `ImproperlyConfigured` |
+| `CUSTOM_STORAGE_ALLOW_S3_WRITES=true` | Allow S3 object writes (including on Windows) |
+| `FORCE_LOCAL_STORAGE=1` (env) | Same as deny when the allow env is unset |
+| Windows (`os.name == "nt"`), allow env unset | Deny by default — set `CUSTOM_STORAGE_ALLOW_S3_WRITES=true` to opt in |
+
+Hostnames are never consulted; deploy tooling should export the env vars
+explicitly on each host class.
 
 ## Environment-Specific Settings
 
